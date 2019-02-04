@@ -21,11 +21,6 @@ $( document ).ready(function() {
         $(".results").children().empty();
     }
 
-    $('.nastaveni_panel input').click(function() {
-        
-        pes = $(this).closest('label').html();
-    });
-
     
 	/*	var stred = SMap.Coords.fromWGS84(14.41, 50.08);
 		var mapa = new SMap(JAK.gel("mapa"), stred, 10);
@@ -98,53 +93,6 @@ $( document ).ready(function() {
 
         });
     });
-
-
-    /* TESTOVACI PODMINKY */
-    $(".test_button").click(function(){
-        var ahoj = $(".test_vysledek test_plny_div").children().not(":empty");
-        console.log(ahoj);
-
-        textik = $(".test_error_message").html();
-        console.log(textik);
-        if (textik == "Nenalezeno") {
-            console.log("error podminka funguje");
-        }
-
-        if($(".test_vysledek test_plny_div").children().not(":empty")) {
-            console.log("test_div funguje");
-        }
-    });
-
-    //pridat zarazovani vysledku
-
-    $('.favorite_button').click(function() {
-        
-        if($("#error_message").not(":contains(Nenalezeno)") || $(".results").children().not(":empty")) { //opravit na pokud div obsahuje jakekoliv charactery
-            var d = new Date();
-            var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-            $(".vypis_okno").append(time);
-            console.log(time);
-
-            $(".vypis_okno").append("<span> Teplota v " + mesto + " je právě " + teplota + "°C </span><br>");
-            $(".vypis_okno").append("<span> Vlhkost v " + mesto + " je právě " + vlhkost  + "</span><br>");
-            $(".vypis_okno").append("<span> Min. teplota v " + mesto + " je právě " + min_temp + "°C </span><br>");
-            $(".vypis_okno").append("<span> Max. teplota v " + mesto + " je právě " + max_temp + "°C </span><br>");
-            $(".vypis_okno").append("<span> Tlak v " + mesto + " je právě " + tlak + "</span><br>");
-            $(".vypis_okno").append("<span> Vitr v " + mesto + " je právě " + vitr + "</span><br>");
-            $(".vypis_okno").append($( "</br>" ) );
-            $(".vypis_bar").append(time);
-        } else {
-            return;
-        }
-    });
-
-    //pridat mazani vysledku
-
-    $('.vypis_zobrazit').click(function() {
-        $(".vypis_okno").toggle("slow");
-    });
-
 
     $('.nastaveni').click(function() {
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
