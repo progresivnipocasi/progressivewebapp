@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
+    <script src="https://api4.windy.com/assets/libBoot.js"></script>
+    <!--<script src="https://api.mapy.cz/loader.js"></script>
+	<script>Loader.load()</script>-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+    <link rel="manifest" href="manifest.json">
+    <script src="app.js"></script>
+    <title>PWA počasí</title>
+</head>
+
+<body>
+    <main>
+        <div id="windy"></div>
+        <div class="overlay">
+            <form class="vypln">
+                <input id="mesto" value="" placeholder="Zadejte město">
+                <input type="submit" value="Odeslat" id="odeslat">
+            </form>
+        </div>
+        <div class="container">
+            <h1>Progresivní webová aplikace</h1>
+            <span class="search_button"></span>
+            <button class="favorite_button">Přidat záznam</button>
+
+            <span class="nastaveni"></span>
+            <div id="error_message"></div>
+            <div class="results">
+                <div id="teplota"></div>
+                <div id="vlhkost"></div>
+                <div id="min-temp"></div>
+                <div id="max-temp"></div>
+                <div id="tlak"></div>
+                <div id="vitr"></div>
+            </div>
+            <div class="nastaveni_panel" style="display: none;">
+                <form>
+                    <label for="teplota_radio">Teplota</label>
+                    <input type="checkbox" name="setting" id="teplota_radio" value="teplota_ch" checked><br>
+
+                    <label for="vlhkost_radio">Vlhkost</label>
+                    <input type="checkbox" name="setting" id="vlhkost_radio" value="vlhkost_ch"><br>
+
+                    <label for="min_teplota_radio">Min. teplota</label>
+                    <input type="checkbox" name="setting" id="min_teplota_radio" value="min_teplota_ch"><br>
+
+                    <label for="max_teplota">Max. Teplota</label>
+                    <input type="checkbox" name="setting" id="max_teplota_radio" value="max_teplota_ch"><br>
+
+                    <label for="tlak_radio">Tlak</label>
+                    <input type="checkbox" name="setting" id="tlak_radio" value="tlak_ch"><br>
+
+                    <label for="vitr_radio">Vitr</label>
+                    <input type="checkbox" name="setting" id="vitr_radio" value="vitr_ch"><br>
+
+                    <input id="predpoved" value="0" type="number"> Na jak dlouho dopředu? (1 = aktuální, 2 = 3 hodiny,
+                    3 = 6 hodin...)</input>
+                </form>
+            </div>
+            <button class="test_button">zmackni me</button>
+            <div class="test_error_message">Nenalezeno</div>
+            <div class="test_vysledek">
+                <div class="test_plny_div">
+                    Lotrm ipsum
+                </div>
+            </div>
+
+            <div class="test_vypis"></div>
+        </div>
+
+        <div class="vypis">
+            <div class="vypis_wrapper">
+                <div class="vypis_bar">
+                    <span class="vypis_zobrazit">DETAIL</span>
+                </div>
+                <div class="vypis_okno"></div>
+            </div>
+        </div>
+        
+    </main>
+
+
+    <script>
+
+        const options = {
+    
+                    // Required: API key
+                    key: '6sZ6r5filmvn76tOGHe1sYXh140hwHiu',
+    
+                    // Put additional console output
+                    verbose: true,
+    
+                    // Optional: Initial state of the map
+                    lat: 50.4,
+                    lon: 14.3,
+                    zoom: 5,
+            }
+    
+        // Initialize Windy API
+        windyInit( options, windyAPI => {
+            // windyAPI is ready, and contain 'map', 'store',
+            // 'picker' and other usefull stuff
+    
+            const { map } = windyAPI
+            // .map is instance of Leaflet map
+    
+            L.popup()
+                .setLatLng([50.4, 14.3])
+                .setContent("Ahoj")
+                .openOn( map );
+    
+        })
+    
+        </script>
+</body>
+
+</html>
