@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
+    <!--<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
     <script src="https://api4.windy.com/assets/libBoot.js"></script>
-    <!--<script src="https://api.mapy.cz/loader.js"></script>
-	<script>Loader.load()</script>-->
+    <script src="https://api.mapy.cz/loader.js"></script>
+    <script>Loader.load()</script>-->
+    <script type="text/javascript" src="Chart.bundle.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
     <link rel="manifest" href="manifest.json">
     <script src="app.js"></script>
     <title>PWA počasí</title>
 </head>
 
 <body>
+    <header>
+            <span class="nastaveni"></span>
+            <span class="search_button"></span>
+    </header>
     <main>
-        <div id="windy"></div>
+        <!--<div id="windy"></div>-->
         <div class="overlay">
             <form class="vypln">
                 <input id="mesto" value="" placeholder="Zadejte město">
@@ -29,9 +34,9 @@
         </div>
         <div class="container">
             <h1>Progresivní webová aplikace</h1>
-            <span class="search_button"></span>
+            <canvas id="myChart" width="400" height="400"></canvas>
 
-            <span class="nastaveni"></span>
+            
             <div id="error_message"></div>
             <div class="results">
                 <div id="teplota"></div>
