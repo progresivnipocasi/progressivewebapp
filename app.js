@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
 $(document).ready(function () {
 
 
-    $.backstretch("images/background-clouds.gif");
+    //$.backstretch("images/background-clouds.gif");
 
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
     var api_klic = "&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
@@ -86,11 +86,18 @@ $(document).ready(function () {
             var teplota_4 = (response.list[4].main.temp);
             var teplota_5 = (response.list[5].main.temp);
 
+            var date_0 = (response.list[0].dt_txt);
+            var date_1 = (response.list[1].dt_txt);
+            var date_2 = (response.list[2].dt_txt);
+            var date_3 = (response.list[3].dt_txt);
+            var date_4 = (response.list[4].dt_txt);
+            var date_5 = (response.list[5].dt_txt);
+
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    labels: [date_0, date_1, date_2, date_3, date_4, date_5],
                     datasets: [{
                         label: 'Teplota',
                         data: [teplota_0, teplota_1, teplota_2, teplota_3, teplota_4, teplota_5],

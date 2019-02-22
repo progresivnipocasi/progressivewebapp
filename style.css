@@ -6,7 +6,7 @@ main {
     text-align: center;
     display: block;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    /*background-color: rgba(0, 0, 0, 0.7);*/
     border-radius: 5px;
     /*padding: 0 25px;*/
     color: white;
@@ -17,6 +17,7 @@ body {
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     height: 100%;
+    background-color: black;
 }
 
 input {
@@ -93,7 +94,10 @@ input {
 .results {
     font-size: 25px;
     color: white;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
+    position: absolute;
+    top: 50%;
+    left: 20%;
 }
 
 .vypis_wrapper {
@@ -154,7 +158,7 @@ input {
 #error_message {
     font-size: 25px;
     color: white;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 
 .nastaveni_panel {
@@ -170,7 +174,6 @@ input {
 #mesto {
     padding: 5px;
     text-align: center;
-    margin-top: 30%;
     font-size: 40px;
     font-weight: bold;
     border-left: none;
@@ -179,7 +182,9 @@ input {
     background-color: transparent;
     border-bottom: 2px solid white;
     color: white;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 70%;
 }
 
@@ -234,4 +239,15 @@ input {
 
 #windy #logo-wrapper #logo {
     left: 50px;
+}
+
+#myChart {
+    width: 400px;
+    height: 400px;
+}
+
+.graf {
+    width: 500px;
+    display: block;
+    margin: auto;
 }
