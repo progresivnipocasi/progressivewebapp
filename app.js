@@ -79,6 +79,13 @@ $(document).ready(function () {
             
             });*/
 
+            var teplota_0 = (response.list[0].main.temp);
+            var teplota_1 = (response.list[1].main.temp);
+            var teplota_2 = (response.list[2].main.temp);
+            var teplota_3 = (response.list[3].main.temp);
+            var teplota_4 = (response.list[4].main.temp);
+            var teplota_5 = (response.list[5].main.temp);
+
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -86,7 +93,7 @@ $(document).ready(function () {
                     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                     datasets: [{
                         label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: [teplota_0, teplota_1, teplota_2, teplota_3, teplota_4, teplota_5],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
