@@ -88,11 +88,11 @@ $(document).ready(function () {
 
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                     datasets: [{
-                        label: '# of Votes',
+                        label: 'Teplota',
                         data: [teplota_0, teplota_1, teplota_2, teplota_3, teplota_4, teplota_5],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
