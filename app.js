@@ -8,6 +8,13 @@ if ('serviceWorker' in navigator) {
     }
 }
 
+$(window).resize(function(){
+    form_sirka = $("#mesto").width();
+    console.log(form_sirka);
+    centrovani = form_sirka/2;
+    $("#mesto").css("margin-left:", centrovani);
+});
+
 
 $(document).ready(function () {
 
@@ -178,7 +185,7 @@ $(document).ready(function () {
 
     $('.nastaveni').click(function () {
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
-        $(".nastaveni_panel").toggle("1000", "swing");
+        $(".nastaveni_panel").toggle("slide", 1000);
     });
 
     function hide() {
