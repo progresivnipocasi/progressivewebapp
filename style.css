@@ -246,8 +246,15 @@ input {
     height: 400px;
 }
 
-.graf {
-    width: 500px;
+.temp_graph {
+    width: 100%;
     display: block;
     margin: auto;
 }
+
+@media screen and (max-width: 992px) {
+    .temp_graph {
+        width: 100%;
+        display: block;
+    }
+  }

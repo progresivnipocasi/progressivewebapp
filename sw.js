@@ -1,21 +1,21 @@
-const stalyKod = [
+const permanentCode = [
     "./",
     "./style.css",
     "./app.js"
 ]
 
 self.addEventListener("install", async event =>{
-    const cache = await caches.open("staticky-kod");
-    cache.addAll(stalyKod);
+    const cache = await caches.open("static-code");
+    cache.addAll(permanentCode);
 });
 
 self.addEventListener("fetch", event => {
     console.log("fetch");
-    const pozadavek = event.request;
-    event.respondWith(cacheFirst(pozadavek));
+    const request = event.request;
+    event.respondWith(cacheFirst(request));
 });
 
-async function cacheFirst(pozadavek) {
-    const cachedOdpoved = await caches.match(pozadavek);
-    return cachedOdpoved || fetch(pozadavek);
+async function cacheFirst(request) {
+    const cachedResponse = await caches.match(request);
+    return cachedResponse || fetch(request);
 }

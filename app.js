@@ -103,6 +103,8 @@ $(document).ready(function () {
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
+                height: 150,
+                width: 400,
                 data: {
                     labels: [date_0, date_1, date_2, date_3, date_4, date_5],
                     datasets: [{
