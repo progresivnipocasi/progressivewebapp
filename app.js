@@ -130,6 +130,8 @@ $(document).ready(function () {
                     }]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
                     scales: {
                         yAxes: [{
                             ticks: {
