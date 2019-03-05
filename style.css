@@ -55,10 +55,10 @@ input {
     position: absolute;
     top: 10px;
     left: 10px;
+    z-index: 6;
 }
 
 .container {
-    padding: 0px 10px;
     z-index: 1;
 }
 
@@ -164,6 +164,15 @@ input {
 .nastaveni_panel {
     text-align: left;
     font-size: 20px;
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    background-color: red;
+    padding-top: 50px;
+    z-index: 5;
 }
 
 #predpoved {
@@ -239,11 +248,6 @@ input {
 
 #windy #logo-wrapper #logo {
     left: 50px;
-}
-
-#myChart {
-    width: 400px;
-    height: 400px;
 }
 
 .temp_graph {

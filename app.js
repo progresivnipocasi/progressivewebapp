@@ -187,7 +187,7 @@ $(document).ready(function () {
 
     $('.nastaveni').click(function () {
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
-        $(".nastaveni_panel").toggle("slide", 1000);
+        $(".nastaveni_panel").toggle("slide");
     });
 
     function hide() {
