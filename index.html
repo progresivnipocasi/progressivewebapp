@@ -36,8 +36,6 @@
         </div>
         <div class="container">
             <h1>Progresivní webová aplikace</h1>
-
-            
             <div id="error_message"></div>
             <div class="results">
                 <div id="teplota"></div>
@@ -49,26 +47,36 @@
             </div>
             <div class="nastaveni_panel" style="display: none;">
                 <form>
-                    <label for="teplota_radio">Teplota</label>
-                    <input type="checkbox" name="setting" id="teplota_radio" value="teplota_ch" checked><br>
-
-                    <label for="vlhkost_radio">Vlhkost</label>
-                    <input type="checkbox" name="setting" id="vlhkost_radio" value="vlhkost_ch"><br>
-
-                    <label for="min_teplota_radio">Min. teplota</label>
-                    <input type="checkbox" name="setting" id="min_teplota_radio" value="min_teplota_ch"><br>
-
-                    <label for="max_teplota">Max. Teplota</label>
-                    <input type="checkbox" name="setting" id="max_teplota_radio" value="max_teplota_ch"><br>
-
-                    <label for="tlak_radio">Tlak</label>
-                    <input type="checkbox" name="setting" id="tlak_radio" value="tlak_ch"><br>
-
-                    <label for="vitr_radio">Vitr</label>
-                    <input type="checkbox" name="setting" id="vitr_radio" value="vitr_ch"><br>
-
-                    <input id="predpoved" value="0" type="number"> Na jak dlouho dopředu? (1 = aktuální, 2 = 3 hodiny,
-                    3 = 6 hodin..)</input>
+                    <ul>
+                        <li>
+                            <label for="teplota_radio">Teplota</label>
+                            <input type="checkbox" name="setting" id="teplota_radio" value="teplota_ch" checked><br>
+                        </li>
+                        <li>
+                            <label for="vlhkost_radio">Vlhkost</label>
+                            <input type="checkbox" name="setting" id="vlhkost_radio" value="vlhkost_ch"><br>
+                        </li>
+                        <li>
+                            <label for="min_teplota_radio">Min. teplota</label>
+                            <input type="checkbox" name="setting" id="min_teplota_radio" value="min_teplota_ch"><br>
+                        </li>
+                        <li>
+                            <label for="max_teplota">Max. Teplota</label>
+                            <input type="checkbox" name="setting" id="max_teplota_radio" value="max_teplota_ch"><br>
+                        </li>
+                        <li>
+                            <label for="tlak_radio">Tlak</label>
+                            <input type="checkbox" name="setting" id="tlak_radio" value="tlak_ch"><br>
+                        </li>
+                        <li>
+                            <label for="vitr_radio">Vitr</label>
+                            <input type="checkbox" name="setting" id="vitr_radio" value="vitr_ch"><br>
+                        </li>
+                        <li>
+                            <input id="predpoved" value="0" type="number"> Na jak dlouho dopředu? (1 = aktuální, 2 = 3 hodiny,
+                            3 = 6 hodin..)</input>
+                        </li>
+                    </ul>
                 </form>
             </div>
 

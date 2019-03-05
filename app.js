@@ -19,7 +19,7 @@ $(window).resize(function(){
 $(document).ready(function () {
 
 
-    //$.backstretch("images/background-clouds.gif");
+    $.backstretch("images/background-clouds.gif");
 
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
     var api_klic = "&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 height: 150,
                 width: 400,
                 data: {
-                    labels: [date_0, date_1, date_2, date_3, date_4, date_5],
+                    labels: [1, 2, 3, 4, 5, 6],
                     datasets: [{
                         label: 'Teplota',
                         data: [teplota_0, teplota_1, teplota_2, teplota_3, teplota_4, teplota_5],
@@ -131,7 +131,7 @@ $(document).ready(function () {
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: true,
+                    maintainAspectRatio: false,
                     scales: {
                         yAxes: [{
                             ticks: {

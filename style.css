@@ -13,11 +13,16 @@ main {
     height: 100%;
 }
 
+header {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 body {
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     height: 100%;
-    background-color: black;
 }
 
 input {
@@ -56,6 +61,27 @@ input {
     top: 10px;
     left: 10px;
     z-index: 6;
+}
+
+.nastaveni_panel form ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.nastaveni_panel form ul label {
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.nastaveni_panel form ul li input {
+    margin: 0px;
+    width: 100%;
+    height: 30px;
+}
+
+.nastaveni_panel form ul li {
+    margin-bottom: 10px;
 }
 
 .container {
@@ -137,6 +163,7 @@ input {
 
 .vypln {
     text-align: center;
+    margin-top: 30%;
 }
 
 
@@ -187,7 +214,7 @@ input {
 #mesto {
     padding: 5px;
     text-align: center;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
     border-left: none;
     border-top: none;
@@ -256,6 +283,8 @@ input {
     display: block;
     height: 150px;
     margin: auto;
+    position: absolute;
+    bottom: 0px;
 }
 
 @media screen and (max-width: 992px) {
