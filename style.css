@@ -42,6 +42,7 @@ body:before {
     height: 450px;
     background-image: url(images/stars.png);
     background-size: contain;
+    background-repeat: repeat-x;
 }
 
 input {
