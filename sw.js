@@ -1,7 +1,10 @@
 const permanentCode = [
     "./",
     "./style.css",
-    "./app.js"
+    "./app.js",
+    "./images/cogwheel.png",
+    "./images/search.png",
+    "./images/close.png"
 ]
 
 self.addEventListener("install", async event =>{
