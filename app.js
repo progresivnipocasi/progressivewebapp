@@ -8,18 +8,10 @@ if ('serviceWorker' in navigator) {
     }
 }
 
-$(window).resize(function(){
-    form_sirka = $("#mesto").width();
-    console.log(form_sirka);
-    centrovani = form_sirka/2;
-    $("#mesto").css("margin-left:", centrovani);
-});
-
-
 $(document).ready(function () {
 
 
-    $.backstretch("images/background-clouds.gif");
+    //$.backstretch("images/background-clouds.gif");
 
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
     var api_klic = "&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
