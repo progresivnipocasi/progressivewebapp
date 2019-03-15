@@ -43,7 +43,7 @@ body:before {
     width: 1920px;
     height: 450px;
     background-image: url(images/stars.png);
-    background-size: contain;
+    background-size: -webkit-fill-available;
     background-repeat: repeat-x;
     position: absolute;
 }
