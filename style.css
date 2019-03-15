@@ -40,10 +40,10 @@ body:before {
 body:before {
     content: "";
     display: block;
-    width: 1920px;
+    width: 100%;
     height: 450px;
     background-image: url(images/stars.png);
-    background-size: -webkit-fill-available;
+    background-size: contain;
     background-repeat: repeat-x;
     position: absolute;
 }
