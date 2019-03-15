@@ -10,7 +10,6 @@ if ('serviceWorker' in navigator) {
 
 $(document).ready(function () {
 
-
     //$.backstretch("images/background-clouds.gif");
 
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
@@ -136,6 +135,8 @@ $(document).ready(function () {
 
 
             //NASTAVENI     //.serializeArray    var div = $("<div></div>");   div.append("ahoj");
+
+            $("#mesto_show").append(mesto);
             //teplota
             if ($("#teplota_radio").is(":checked") === true) {
                 teplota = (response.list[0].main.temp);
@@ -192,10 +193,6 @@ $(document).ready(function () {
     $('.search_button').click(function () {
         hide();
     });
-
-
-
-
 });
 
 
