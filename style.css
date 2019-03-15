@@ -10,6 +10,7 @@ main {
     border-radius: 5px;
     /*padding: 0 25px;*/
     color: black;
+    height: auto;
 }
 
 body {
@@ -107,6 +108,8 @@ input {
 
 .nastaveni_panel form ul li {
     margin-bottom: 10px;
+    border-bottom: 2px solid black;
+    padding-bottom: 11px;
 }
 
 .container {
