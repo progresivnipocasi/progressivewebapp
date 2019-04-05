@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <!--<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
+    <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
     <script src="https://api4.windy.com/assets/libBoot.js"></script>
     <script src="https://api.mapy.cz/loader.js"></script>
-    <script>Loader.load()</script>-->
+    <script>Loader.load()</script>
     <script type="text/javascript" src="Chart.bundle.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-128x128.png">
@@ -26,19 +25,24 @@
             <span class="nastaveni"></span>
             <span class="search_button"></span>
     </header>
+    <div id="windy"></div>
     <main>
-        <!--<div id="windy"></div>-->
+        
         <div class="overlay">
             <form class="vypln">
-                <input id="mesto" value="" placeholder="Zadejte město">
+                <input id="mesto" value="" placeholder="Zadejte město" autocomplete="off" autofocus>
                 <input type="submit" value="Odeslat" id="odeslat">
             </form>
         </div>
+        
         <div class="container">
             <h1>Progresivní webová aplikace</h1>
             <div id="error_message"></div>
-            <div class="results">
+            <div class="top">
                 <div id="mesto_show"></div>
+                <div id="teplota"></div>
+            </div>
+            <div class="results">
                 <div id="teplota"></div>
                 <div id="vlhkost"></div>
                 <div id="min-temp"></div>
@@ -50,8 +54,10 @@
                 <form>
                     <ul>
                         <li>
-                            <label for="teplota_radio">Teplota</label>
-                            <input type="checkbox" name="setting" id="teplota_radio" value="teplota_ch" checked><br>
+                            <label for="teplota_radio" class="checkb_container">Teplota
+                                <input type="checkbox" name="setting" id="teplota_radio" value="teplota_ch" checked>
+                                <span class=checkmark></span>
+                            </label>
                         </li>
                         <li>
                             <label for="vlhkost_radio">Vlhkost</label>
@@ -77,8 +83,9 @@
                             <input id="predpoved" value="0" type="number"> Na jak dlouho dopředu? (1 = aktuální, 2 = 3 hodiny,
                             3 = 6 hodin..)</input>
                         </li>
-                    </ul>
+                    </ul> 
                 </form>
+                
             </div>
 
             <div class="temp_graph">

@@ -10,15 +10,13 @@ if ('serviceWorker' in navigator) {
 
 $(document).ready(function () {
 
-    //$.backstretch("images/background-clouds.gif");
-
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
-    var api_klic = "&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
+    var api_klic = "&lang=cz&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
 
-
-    function vyprazdnit() {
+    function dump() {
         $("#error_message").empty();
         $(".results").children().empty();
+        $(".top").empty();
     }
 
     $('.vypln').submit(function (e) {
@@ -33,7 +31,7 @@ $(document).ready(function () {
             "url": server + mesto + api_klic,
             "method": "GET",
             error: function (e) {
-                vyprazdnit();
+                dump();
                 $("#error_message").append("Nenalezeno");
             }
         }
@@ -41,11 +39,15 @@ $(document).ready(function () {
 
         $.ajax(settings).done(function (response) {
 
-            vyprazdnit();
+            dump();
+            console.log(response);
 
             obdobi = $("#predpoved").val();
+            var text_odpoved = JSON.stringify(response);
 
-            /*latitude = (response.city.coord.lat);
+            localStorage.setItem(mesto, text_odpoved);
+
+            latitude = (response.city.coord.lat);
             longitude = (response.city.coord.lon);
 
             const options = {
@@ -75,21 +77,15 @@ $(document).ready(function () {
                     .setContent("teplota je " + response.list[0].main.temp + " stupňů")
                     .openOn(map);
             
-            });*/
-
-            var teplota_0 = (response.list[0].main.temp);
-            var teplota_1 = (response.list[1].main.temp);
-            var teplota_2 = (response.list[2].main.temp);
-            var teplota_3 = (response.list[3].main.temp);
-            var teplota_4 = (response.list[4].main.temp);
-            var teplota_5 = (response.list[5].main.temp);
-
-            var date_0 = (response.list[0].dt_txt);
-            var date_1 = (response.list[1].dt_txt);
-            var date_2 = (response.list[2].dt_txt);
-            var date_3 = (response.list[3].dt_txt);
-            var date_4 = (response.list[4].dt_txt);
-            var date_5 = (response.list[5].dt_txt);
+            });
+            
+            var arr_temp = [];
+            var arr_dates = [];
+            var i;
+            for (i = 0; i < 6; i++) {
+                arr_temp.push(response.list[i].main.temp);
+                arr_dates.push(response.list[i].dt_txt);
+            } 
 
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
@@ -97,10 +93,10 @@ $(document).ready(function () {
                 height: 150,
                 width: 400,
                 data: {
-                    labels: [1, 2, 3, 4, 5, 6],
+                    labels: arr_dates,
                     datasets: [{
                         label: 'Teplota',
-                        data: [teplota_0, teplota_1, teplota_2, teplota_3, teplota_4, teplota_5],
+                        data: arr_temp,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -137,6 +133,7 @@ $(document).ready(function () {
             //NASTAVENI     //.serializeArray    var div = $("<div></div>");   div.append("ahoj");
 
             $("#mesto_show").append(mesto);
+            
             //teplota
             if ($("#teplota_radio").is(":checked") === true) {
                 teplota = (response.list[0].main.temp);
