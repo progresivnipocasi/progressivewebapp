@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
 $(document).ready(function () {
 
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
-    var api_klic = "&lang=cz&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
+    var api_weather_key = "&lang=cz&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
 
     function dump() {
         $("#error_message").empty();
@@ -21,14 +21,14 @@ $(document).ready(function () {
 
     $('.vypln').submit(function (e) {
         e.preventDefault();
-        mesto = $('#mesto').val();
+        searched_city = $('#mesto').val();
 
         hide();
 
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": server + mesto + api_klic,
+            "url": server + searched_city + api_weather_key,
             "method": "GET",
             error: function (e) {
                 dump();
@@ -43,9 +43,11 @@ $(document).ready(function () {
             console.log(response);
 
             obdobi = $("#predpoved").val();
-            var text_odpoved = JSON.stringify(response);
 
-            localStorage.setItem(mesto, text_odpoved);
+            localStorage.setItem(searched_city, JSON.stringify(response));
+
+            //var getJSON_response = JSON.parse(localStorage.getItem(searched_city));
+            
 
             latitude = (response.city.coord.lat);
             longitude = (response.city.coord.lon);
@@ -74,7 +76,7 @@ $(document).ready(function () {
             
                 L.popup()
                     .setLatLng([latitude, longitude])
-                    .setContent("teplota je " + response.list[0].main.temp + " stupňů")
+                    .setContent(searched_city + ": " + response.list[0].main.temp)
                     .openOn(map);
             
             });
