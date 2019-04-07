@@ -48,7 +48,7 @@ $(document).ready(function () {
 
             //var getJSON_response = JSON.parse(localStorage.getItem(searched_city));
             
-
+/*
             latitude = (response.city.coord.lat);
             longitude = (response.city.coord.lon);
 
@@ -79,7 +79,7 @@ $(document).ready(function () {
                     .setContent(searched_city + ": " + response.list[0].main.temp)
                     .openOn(map);
             
-            });
+            });*/
             
             var arr_temp = [];
             var arr_dates = [];
