@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
 $(document).ready(function () {
 
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
-    var api_weather_key = "&lang=cz&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
+    var owm_key = "&lang=cz&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
 
     function dump() {
         $("#error_message").empty();
@@ -20,15 +20,15 @@ $(document).ready(function () {
     }
 
     $('.vypln').submit(function (e) {
-        e.preventDefault();
         searched_city = $('#mesto').val();
-
+        e.preventDefault();
+        
         hide();
 
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": server + searched_city + api_weather_key,
+            "url": server + searched_city + owm_key,
             "method": "GET",
             error: function (e) {
                 dump();
@@ -38,6 +38,8 @@ $(document).ready(function () {
 
 
         $.ajax(settings).done(function (response) {
+
+            console.log(searched_city);
 
             dump();
             console.log(response);
@@ -84,9 +86,10 @@ $(document).ready(function () {
             var arr_temp = [];
             var arr_dates = [];
             var i;
-            for (i = 0; i < 6; i++) {
+            for (i = 0; i < 16; i++) {
                 arr_temp.push(response.list[i].main.temp);
-                arr_dates.push(response.list[i].dt_txt);
+                let trimmed_date = (response.list[i].dt_txt).slice(11, -3);
+                arr_dates.push(trimmed_date);
             } 
 
             var ctx = document.getElementById("myChart").getContext('2d');
@@ -134,42 +137,42 @@ $(document).ready(function () {
 
             //NASTAVENI     //.serializeArray    var div = $("<div></div>");   div.append("ahoj");
 
-            $("#mesto_show").append(mesto);
+            $("#mesto_show").append(searched_city);
             
             //teplota
             if ($("#teplota_radio").is(":checked") === true) {
                 teplota = (response.list[0].main.temp);
-                $("#teplota").append("Teplota v " + mesto + " je právě " + teplota + "°C");
+                $("#teplota").append(teplota + "°C");
             }
 
             //vlhkost
             if ($("#vlhkost_radio").is(":checked") === true) {
                 vlhkost = (response.list[0].main.humidity);
-                $("#vlhkost").append("Vlhkost v " + mesto + " je právě " + vlhkost);
+                $("#vlhkost").append("Vlhkost v " + searched_city + " je právě " + vlhkost);
             }
 
             //min. teplota
             if ($("#min_teplota_radio").is(":checked") === true) {
                 min_temp = (response.list[0].main.temp_min);
-                $("#min-temp").append("Min. teplota v " + mesto + " je právě " + min_temp + "°C");
+                $("#min-temp").append("Min. teplota v " + searched_city + " je právě " + min_temp + "°C");
             }
 
             //max. teplota
             if ($("#max_teplota_radio").is(":checked") === true) {
                 max_temp = (response.list[0].main.temp_max);
-                $("#max-temp").append("Max. teplota v " + mesto + " je právě " + max_temp + "°C");
+                $("#max-temp").append("Max. teplota v " + searched_city + " je právě " + max_temp + "°C");
             }
 
             //tlak
             if ($("#tlak_radio").is(":checked") === true) {
                 tlak = (response.list[0].main.pressure);
-                $("#tlak").append("Tlak v " + mesto + " je právě " + tlak);
+                $("#tlak").append("Tlak v " + searched_city + " je právě " + tlak);
             }
 
             //vitr
             if ($("#vitr_radio").is(":checked") === true) {
                 vitr = (response.list[0].wind.speed);
-                $("#vitr").append("Vitr v " + mesto + " je právě " + vitr);
+                $("#vitr").append("Vitr v " + searched_city + " je právě " + vitr);
             }
 
             var selection = $(".results");
