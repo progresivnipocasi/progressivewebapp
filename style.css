@@ -109,7 +109,7 @@ input {
 
 #results_table {
     width: 100%;
-    height: 200px;
+    height: 150px;
     display: block;
     overflow: overlay;
 }
@@ -117,21 +117,13 @@ input {
 #results_table #results_table_detail {
     width: 80%;
     margin: auto;
+    background: rgba(58, 63, 59, 0.1);
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    display: none;
 }
  
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
-}
- 
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
 
 .container {
     z-index: 1;
@@ -179,7 +171,7 @@ input {
     width: 100%;
     margin: auto;
     position: absolute;
-    top: 20%;
+    top: 17%;
 }
 
 .results .results_wrapper {
@@ -192,50 +184,52 @@ input {
 body main .container .results #teplota {
     float: left;
     text-align: left;
-    font-size: 80px;
+    font-size: 40px;
     width: 50%;
 }
 
 body main .container .results #vitr {
     background-image: url(images/vitr.png);
     background-repeat: no-repeat;
-    background-size: 37px;
-    background-position: 5px 4px;
+    background-size: 26px;
+    background-position: 100% 2px;
 }
 
 body main .container .results #tlak {
     background-image: url(images/pressure.png);
     background-repeat: no-repeat;
-    background-size: 37px;
-    background-position: 7px 4px;
+    background-size: 32px;
+    background-position: 100% 0px;
 }
 
 body main .container .results #max-temp {
     background-image: url(images/max_temp.png);
     background-repeat: no-repeat;
-    background-size: 37px;
-    background-position: 11px 4px;
+    background-size: 32px;
+    background-position: 100% 0px;
 }
 
 body main .container .results #min-temp {
     background-image: url(images/min_temp.png);
     background-repeat: no-repeat;
-    background-size: 37px;
-    background-position: 11px 4px;
+    background-size: 32px;
+    background-position: 100% 0px;
 }
 
 body main .container .results #vlhkost {
     background-image: url(images/humidity.png);
     background-repeat: no-repeat;
-    background-size: 37px;
-    background-position: 6px 10px;
+    background-size: 32px;
+    background-position: 100% 0px;
 }
 
 .current_detail {
     text-align: right;
-    font-size: 28px;
+    font-size: 16px;
     display: inline-block;
     width: 50%;
+    box-sizing: border-box;
+    padding-right: 30px;
 }
 
 .vypis_wrapper {
