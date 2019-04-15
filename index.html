@@ -12,32 +12,33 @@
     <script src="https://api4.windy.com/assets/libBoot.js"></script>
     <script src="https://api.mapy.cz/loader.js"></script>
     <script>Loader.load()</script>-->
-    
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-128x128.png">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2196f3"/>
+    <meta name="theme-color" content="#2196f3" />
     <script src="app.js"></script>
     <title>PWA počasí</title>
 </head>
 
 <body>
     <header>
-            <span class="nastaveni"></span>
-            <span class="search_button"></span>
+        <span class="nastaveni"></span>
+        <span class="search_button"></span>
     </header>
     <div id="windy"></div>
     <main>
-        
+
         <div class="overlay">
             <form class="vypln">
                 <input id="mesto" value="" placeholder="Zadejte město" autocomplete="off" autofocus>
                 <input type="submit" value="Odeslat" id="odeslat">
             </form>
         </div>
-        
+
         <div class="container">
             <h1>Progresivní webová aplikace</h1>
             <div id="error_message"></div>
@@ -45,58 +46,71 @@
                 <div id="mesto_show"></div>
             </div>
             <div class="results">
-                <div id="teplota"></div>
-                <div id="vlhkost"></div>
-                <div id="min-temp"></div>
-                <div id="max-temp"></div>
-                <div id="tlak"></div>
-                <div id="vitr"></div>
+                <div class="results_wrapper">
+                    <div id="teplota"></div>
+                    <div id="vlhkost"></div>
+                    <div id="min-temp"></div>
+                    <div id="max-temp"></div>
+                    <div id="tlak"></div>
+                    <div id="vitr"></div>
+                </div>
             </div>
             <div class="nastaveni_panel" style="display: none">
                 <form>
                     <ul>
                         <li>
                             <label for="teplota_radio" class="checkb_container">
+                                Teplota
                                 <input type="checkbox" name="setting" id="teplota_radio" value="teplota_ch" checked>
-                                <span class=checkmark></span>
+
                             </label>
                         </li>
                         <li>
                             <label for="vlhkost_radio" class="checkb_container">
+                                Vlhkost
                                 <input type="checkbox" name="setting" id="vlhkost_radio" value="teplota_ch" checked>
-                                <span class=checkmark></span>
+
                             </label>
                         </li>
                         <li>
-                            <label for="min_teplota_radio"></label>
-                            <input type="checkbox" name="setting" id="min_teplota_radio" value="min_teplota_ch"><br>
+                            <label for="min_teplota_radio" class="checkb_container">
+                                Minimální teplota
+                                <input type="checkbox" name="setting" id="min_teplota_radio" value="min_teplota_ch"><br>
+
+                            </label>
                         </li>
                         <li>
-                            <label for="max_teplota"></label>
-                            <input type="checkbox" name="setting" id="max_teplota_radio" value="max_teplota_ch"><br>
+                            <label for="max_teplota_radio" class="checkb_container">
+                                Maximální teplota
+                                <input type="checkbox" name="setting" id="max_teplota_radio" value="max_teplota_ch"><br>
+
+                            </label>
                         </li>
                         <li>
-                            <label for="tlak_radio"></label>
-                            <input type="checkbox" name="setting" id="tlak_radio" value="tlak_ch"><br>
+                            <label for="tlak_radio" class="checkb_container">
+                                Tlak
+                                <input type="checkbox" name="setting" id="tlak_radio" value="tlak_ch"><br>
+
+                            </label>
                         </li>
                         <li>
-                            <label for="vitr_radio"></label>
-                            <input type="checkbox" name="setting" id="vitr_radio" value="vitr_ch"><br>
+                            <label for="vitr_radio" class="checkb_container">
+                                Vítr
+                                <input type="checkbox" name="setting" id="vitr_radio" value="vitr_ch"><br>
+
+                            </label>
                         </li>
-                        <li>
-                            <input id="predpoved" value="0" type="number"> Na jak dlouho dopředu? (1 = aktuální, 2 = 3 hodiny,
-                            3 = 6 hodin..)</input>
-                        </li>
-                    </ul> 
+                    </ul>
                 </form>
-                
+
             </div>
 
             <div class="temp_graph">
                 <canvas id="myChart" width="50%" height="150"></canvas>
             </div>
-        </div>       
+        </div>
     </main>
 </body>
 <script type="text/javascript" src="Chart.bundle.js"></script>
+
 </html>

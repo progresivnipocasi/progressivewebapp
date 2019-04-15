@@ -17,7 +17,7 @@ body {
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     height: 100%;
-    background-color: black;/*#2588f8;*/
+    background-color: #2588f8;
     overflow: hidden;
     position: relative;
 }
@@ -94,93 +94,17 @@ input {
     list-style-type: none;
     padding: 0px;
 }
-/*
+
 .nastaveni_panel form ul label {
     width: 100%;
+    height: 40px;
+    padding-top: 15px;
     text-align: center;
     display: block;
 }
 
-.nastaveni_panel form ul li input {
-    margin: 0px;
-    width: 100%;
-    height: 30px;
-}
-*/
-
- /* Customize the label (the container) */
- .checkb_container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    height: 50px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .checkb_container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 40px;
-    width: 40px;
-    background-image: url(images/weather-icon-set.svg);
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .checkb_container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .checkb_container input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .checkb_container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .checkb_container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  } 
-
-
 .nastaveni_panel form ul li {
-    margin-bottom: 10px;
     border-bottom: 2px solid black;
-    padding-bottom: 11px;
 }
 
 .container {
@@ -226,9 +150,20 @@ input {
     color: white;
     /*margin-top: 20px;*/
     display: block;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     position: absolute;
     top: 30%;
+}
+
+.results .results_wrapper {
+    width: 80%;
+    margin: auto;
+}
+
+body main .container .results #teplota {
+    float: left;
+    font-size: 80px;
 }
 
 .vypis_wrapper {
@@ -334,7 +269,6 @@ input {
 }
 
 .nastaveni_panel input {
-    float: left; 
     margin-bottom: 0px;
 }
 
@@ -362,11 +296,11 @@ input {
     transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
 }
 
-
 #windy {
     width: 100%;
     height: 100%;
     z-index: 1;
+    display: none;
 }
 
 #windy #bottom,

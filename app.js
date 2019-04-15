@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     function dump() {
         $("#error_message").empty();
-        $(".results").children().empty();
+        $(".results .results_wrapper").children().empty();
         $(".top").empty();
     }
 
@@ -174,11 +174,6 @@ $(document).ready(function () {
                 vitr = (response.list[0].wind.speed);
                 $("#vitr").append("Vitr v " + searched_city + " je právě " + vitr);
             }
-
-            var selection = $(".results");
-            console.log(selection);
-
-
         });
     });
 
