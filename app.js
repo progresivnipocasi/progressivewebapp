@@ -141,39 +141,48 @@ $(document).ready(function () {
             
             //teplota
             if ($("#teplota_radio").is(":checked") === true) {
-                teplota = (response.list[0].main.temp);
-                $("#teplota").append(teplota + "°C");
+                let teplota = (response.list[0].main.temp).toString();
+                $("#teplota").append(teplota + "°C").show('slow');
             }
 
             //vlhkost
             if ($("#vlhkost_radio").is(":checked") === true) {
                 vlhkost = (response.list[0].main.humidity);
-                $("#vlhkost").append("Vlhkost v " + searched_city + " je právě " + vlhkost);
+                $("#vlhkost").append(vlhkost);
             }
 
             //min. teplota
             if ($("#min_teplota_radio").is(":checked") === true) {
                 min_temp = (response.list[0].main.temp_min);
-                $("#min-temp").append("Min. teplota v " + searched_city + " je právě " + min_temp + "°C");
+                $("#min-temp").append(min_temp + "°C");
             }
 
             //max. teplota
             if ($("#max_teplota_radio").is(":checked") === true) {
                 max_temp = (response.list[0].main.temp_max);
-                $("#max-temp").append("Max. teplota v " + searched_city + " je právě " + max_temp + "°C");
+                $("#max-temp").append(max_temp + "°C");
             }
 
             //tlak
             if ($("#tlak_radio").is(":checked") === true) {
                 tlak = (response.list[0].main.pressure);
-                $("#tlak").append("Tlak v " + searched_city + " je právě " + tlak);
+                $("#tlak").append(tlak + "mBar");
             }
 
             //vitr
             if ($("#vitr_radio").is(":checked") === true) {
                 vitr = (response.list[0].wind.speed);
-                $("#vitr").append("Vitr v " + searched_city + " je právě " + vitr);
+                $("#vitr").append(vitr + "m/s");
             }
+
+
+            for (i = 0; i < 16; i++) {
+                $('body #results_table_detail').append(
+                    '<tr><td>' + response.list[i].main.temp + '</td>' +
+                    '<td>' + response.list[i].wind.speed + '</td>' +
+                    '</tr>');
+            }
+
         });
     });
 

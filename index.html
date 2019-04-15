@@ -48,11 +48,14 @@
             <div class="results">
                 <div class="results_wrapper">
                     <div id="teplota"></div>
-                    <div id="vlhkost"></div>
-                    <div id="min-temp"></div>
-                    <div id="max-temp"></div>
-                    <div id="tlak"></div>
-                    <div id="vitr"></div>
+                    <div id="vlhkost" class="current_detail"></div>
+                    <div id="min-temp" class="current_detail"></div>
+                    <div id="max-temp" class="current_detail"></div>
+                    <div id="tlak" class="current_detail"></div>
+                    <div id="vitr" class="current_detail"></div>
+                </div>
+                <div id="results_table">
+                    <table id="results_table_detail"></table>
                 </div>
             </div>
             <div class="nastaveni_panel" style="display: none">
@@ -75,28 +78,28 @@
                         <li>
                             <label for="min_teplota_radio" class="checkb_container">
                                 Minimální teplota
-                                <input type="checkbox" name="setting" id="min_teplota_radio" value="min_teplota_ch"><br>
+                                <input type="checkbox" name="setting" id="min_teplota_radio" value="min_teplota_ch" checked><br>
 
                             </label>
                         </li>
                         <li>
                             <label for="max_teplota_radio" class="checkb_container">
                                 Maximální teplota
-                                <input type="checkbox" name="setting" id="max_teplota_radio" value="max_teplota_ch"><br>
+                                <input type="checkbox" name="setting" id="max_teplota_radio" value="max_teplota_ch" checked><br>
 
                             </label>
                         </li>
                         <li>
                             <label for="tlak_radio" class="checkb_container">
                                 Tlak
-                                <input type="checkbox" name="setting" id="tlak_radio" value="tlak_ch"><br>
+                                <input type="checkbox" name="setting" id="tlak_radio" value="tlak_ch" checked><br>
 
                             </label>
                         </li>
                         <li>
                             <label for="vitr_radio" class="checkb_container">
                                 Vítr
-                                <input type="checkbox" name="setting" id="vitr_radio" value="vitr_ch"><br>
+                                <input type="checkbox" name="setting" id="vitr_radio" value="vitr_ch" checked><br>
 
                             </label>
                         </li>
