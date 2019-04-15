@@ -6,10 +6,8 @@ main {
     text-align: center;
     display: block;
     margin: auto;
-    /*background-color: rgba(0, 0, 0, 0.7);*/
     border-radius: 5px;
-    /*padding: 0 25px;*/
-    color: #2196F3;
+    background-color: green;
     height: auto;
 }
 
@@ -112,12 +110,13 @@ input {
     height: 150px;
     display: block;
     overflow: overlay;
+    font-size: 15px;
 }
 
 #results_table #results_table_detail {
     width: 80%;
     margin: auto;
-    background: rgba(58, 63, 59, 0.1);
+    background: rgba(58, 63, 59, 0.4);
 }
 
 ::-webkit-scrollbar {
@@ -179,6 +178,7 @@ input {
     margin: auto;
     text-align: right;
     margin-bottom: 20px;
+    position: relative;
 }
 
 body main .container .results #teplota {
@@ -187,6 +187,15 @@ body main .container .results #teplota {
     font-size: 40px;
     width: 50%;
 }
+
+body main .container .results #result_city {
+    text-align: left;
+    font-size: 30px;
+    position: absolute;
+    left: 0px;
+    top: 50px;
+}
+
 
 body main .container .results #vitr {
     background-image: url(images/vitr.png);
@@ -304,10 +313,11 @@ body main .container .results #vlhkost {
     display: block;
     height: 100%;
     position: absolute;
+    color: white;
     top: 0px;
     left: 0px;
     width: 70%;
-    background-color: #797979;
+    background-color: #5c5c5f;
     z-index: 5;
 }
 
@@ -365,8 +375,7 @@ body main .container .results #vlhkost {
 #windy {
     width: 100%;
     height: 100%;
-    z-index: 1;
-    display: none;
+    z-index: 0;
 }
 
 #windy #bottom,

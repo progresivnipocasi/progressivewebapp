@@ -8,10 +8,10 @@
     <meta name="description" content="Progresivni webova aplikace k zobrazovani a ukladani vysledku pocasi">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/icons/icon-32x32.png" />
-    <!--<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
+    <!----><script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
     <script src="https://api4.windy.com/assets/libBoot.js"></script>
     <script src="https://api.mapy.cz/loader.js"></script>
-    <script>Loader.load()</script>-->
+    <script>Loader.load()</script>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
@@ -48,6 +48,7 @@
             <div class="results">
                 <div class="results_wrapper">
                     <div id="teplota"></div>
+                    <div id="result_city"></div>
                     <div id="vlhkost" class="current_detail"></div>
                     <div id="min-temp" class="current_detail"></div>
                     <div id="max-temp" class="current_detail"></div>
@@ -105,6 +106,8 @@
                         </li>
                     </ul>
                 </form>
+                <button id="map_button_open">Zobrazit mapu</button>
+                <button id="add_result_button">Přidat výsledek</button>
 
             </div>
 

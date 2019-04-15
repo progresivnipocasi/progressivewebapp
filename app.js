@@ -17,6 +17,7 @@ $(document).ready(function () {
         $("#error_message").empty();
         $(".results .results_wrapper").children().empty();
         $(".top").empty();
+        $("#results_table_detail").empty();
     }
 
     $('.vypln').submit(function (e) {
@@ -50,7 +51,7 @@ $(document).ready(function () {
 
             //var getJSON_response = JSON.parse(localStorage.getItem(searched_city));
             
-/*
+
             latitude = (response.city.coord.lat);
             longitude = (response.city.coord.lon);
 
@@ -81,7 +82,7 @@ $(document).ready(function () {
                     .setContent(searched_city + ": " + response.list[0].main.temp)
                     .openOn(map);
             
-            });*/
+            });
             
             var arr_temp = [];
             var arr_dates = [];
@@ -103,25 +104,30 @@ $(document).ready(function () {
                         label: 'Teplota',
                         data: arr_temp,
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(255, 255, 255, 0.5)',
+                            'rgba(0, 0, 0, 0.5)',
+                            'rgba(150, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(150, 102, 255, 0.5)',
+                            'rgba(150, 159, 64, 0.5)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
+                            'rgba(150,99,132,1)',
                             'rgba(54, 162, 235, 1)',
                             'rgba(255, 206, 86, 1)',
                             'rgba(75, 192, 192, 1)',
                             'rgba(153, 102, 255, 1)',
                             'rgba(255, 159, 64, 1)'
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     }]
                 },
                 options: {
+                    legend: {
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    },
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
@@ -137,7 +143,7 @@ $(document).ready(function () {
 
             //NASTAVENI     //.serializeArray    var div = $("<div></div>");   div.append("ahoj");
 
-            $("#mesto_show").append(searched_city);
+            $("#result_city").append(searched_city);
             
             //teplota
             if ($("#teplota_radio").is(":checked") === true) {
@@ -177,14 +183,22 @@ $(document).ready(function () {
 
 
             for (i = 0; i < 16; i++) {
+                    var table_date = response.list[i].dt_txt.slice(6,-3);
                 $('body #results_table_detail').append(
-                    '<tr><td>' + response.list[i].main.temp + '</td>' +
-                    '<td>' + response.list[i].wind.speed + '</td>' +
+                    '<tr><td>' + table_date + '</td>' +
+                    '<td>' + response.list[i].main.temp + '°C</td>' +
+                    '<td>' + response.list[i].wind.speed + ' m/s</td>' +
+                    '<td>' + response.list[i].weather[0].description + '</td>' +
                     '</tr>');
+                    
             }
 
         });
     });
+
+    $("#map_button_open").click(function(){
+        $("#windy").css("z-index", "3");
+      });
 
     $('.nastaveni').click(function () {
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
