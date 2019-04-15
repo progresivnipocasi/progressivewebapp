@@ -20,6 +20,10 @@ $(document).ready(function () {
         $("#results_table_detail").empty();
     }
 
+    search_flag = false;
+
+    var response_obtained = null;
+
     $('.vypln').submit(function (e) {
         searched_city = $('#mesto').val();
         e.preventDefault();
@@ -31,6 +35,10 @@ $(document).ready(function () {
             "crossDomain": true,
             "url": server + searched_city + owm_key,
             "method": "GET",
+            success: function(response){
+                response_obtained = response; 
+
+            },
             error: function (e) {
                 dump();
                 $("#error_message").append("Nenalezeno");
@@ -39,50 +47,14 @@ $(document).ready(function () {
 
 
         $.ajax(settings).done(function (response) {
-
-            console.log(searched_city);
-
             dump();
-            console.log(response);
 
-            obdobi = $("#predpoved").val();
+
+            search_flag = true;
 
             localStorage.setItem(searched_city, JSON.stringify(response));
 
             //var getJSON_response = JSON.parse(localStorage.getItem(searched_city));
-            
-
-            latitude = (response.city.coord.lat);
-            longitude = (response.city.coord.lon);
-
-            const options = {
-
-                // Required: API key
-                key: '6sZ6r5filmvn76tOGHe1sYXh140hwHiu',
-            
-                // Put additional console output
-                verbose: true,
-            
-                // Optional: Initial state of the map
-                lat: latitude,
-                lon: longitude,
-                zoom: 5,
-            }
-            
-            // Initialize Windy API
-            windyInit(options, windyAPI => {
-                // windyAPI is ready, and contain 'map', 'store',
-                // 'picker' and other usefull stuff
-            
-                const { map } = windyAPI
-                // .map is instance of Leaflet map
-            
-                L.popup()
-                    .setLatLng([latitude, longitude])
-                    .setContent(searched_city + ": " + response.list[0].main.temp)
-                    .openOn(map);
-            
-            });
             
             var arr_temp = [];
             var arr_dates = [];
@@ -197,7 +169,44 @@ $(document).ready(function () {
     });
 
     $("#map_button_open").click(function(){
-        $("#windy").css("z-index", "3");
+        
+        if(search_flag) {
+
+            latitude = (response_obtained.city.coord.lat);
+            longitude = (response_obtained.city.coord.lon);
+
+            const options = {
+
+                // Required: API key
+                key: '6sZ6r5filmvn76tOGHe1sYXh140hwHiu',
+            
+                // Put additional console output
+                verbose: true,
+            
+                // Optional: Initial state of the map
+                lat: latitude,
+                lon: longitude,
+                zoom: 5,
+            }
+            
+            // Initialize Windy API
+            windyInit(options, windyAPI => {
+                // windyAPI is ready, and contain 'map', 'store',
+                // 'picker' and other usefull stuff
+            
+                const { map } = windyAPI
+                // .map is instance of Leaflet map
+            
+                L.popup()
+                    .setLatLng([latitude, longitude])
+                    .setContent(searched_city + ": " + response_obtained.list[0].main.temp)
+                    .openOn(map);
+            
+            });
+
+
+            $("#windy").toggleClass("displayed_windy");
+        }
       });
 
     $('.nastaveni').click(function () {
