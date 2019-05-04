@@ -53,7 +53,9 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
 
             console.log(response);
-            dump();
+
+            
+                dump();
 
 
             search_flag = true;
@@ -172,7 +174,6 @@ $(document).ready(function () {
 
             }
 
-
             $("#add_result_button").on('click',(function() {
                     unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
                     localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
@@ -199,12 +200,19 @@ $(document).ready(function () {
 
     for (i = 0; i < window.localStorage.length; i++) {
         display_name = (window.localStorage.key(i).split("_")[0]);
+
         $(".saved_results").append("<li id='" + window.localStorage.key(i) + "'>" + display_name + "<span id='remove_result'></span></li>");
     }
 
-    $(document).on("click", "li #remove_result", function () {
+    $(document).on("click", "li #remove_result", function(e) {
+        e.stopPropagation();
         window.localStorage.removeItem($(this).closest("li").attr("id"));
         $(this).closest("li").remove();
+    });
+
+    $(document).on("click", ".saved_results li", function () {
+        response = JSON.parse(window.localStorage.getItem($(this).attr('id')));
+        console.log(response);
     });
 
 
