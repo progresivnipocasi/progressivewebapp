@@ -10,6 +10,8 @@ if ('serviceWorker' in navigator) {
 
 $(document).ready(function () {
 
+
+
     //window.localStorage.clear();
 
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
@@ -171,11 +173,12 @@ $(document).ready(function () {
             }
 
 
-            $("#add_result_button").click(function() {
+            $("#add_result_button").on('click',(function() {
                 localStorage.setItem(searched_city, JSON.stringify(response));
                 console.log(searched_city);
+                console.log("foo");
                 $(".saved_results").append("<li>" + searched_city + "<span id='remove_result'></span></li>");
-            });
+            }));
         });
     });
 
@@ -262,10 +265,6 @@ $(document).ready(function () {
         $(this).toggleClass("close_search");
         $(".overlay").toggleClass("displayed");
     };
-
-    $('#add_result_button').click(function () {
-
-    });
 
     $('.search_button').click(function () {
         hide();
