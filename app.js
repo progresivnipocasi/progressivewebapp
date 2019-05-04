@@ -174,18 +174,15 @@ $(document).ready(function () {
 
 
             $("#add_result_button").on('click',(function() {
-                localStorage.setItem(searched_city, JSON.stringify(response));
-                console.log(searched_city);
-                console.log("foo");
-                $(".saved_results").append("<li>" + searched_city + "<span id='remove_result'></span></li>");
+                    unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+                    localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
+                    $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");      
             }));
+
+
         });
     });
 
-
-
-
-    //key_cislo pres regex mazat do vypisu vsechno za podtrzitkem v pripade ze hodnota klice je stejna pridat podrtzitko plus i navyssujici se hodnota
 
 
     function clear_map_localstorage() {
@@ -201,11 +198,12 @@ $(document).ready(function () {
 
 
     for (i = 0; i < window.localStorage.length; i++) {
-        $(".saved_results").append("<li class='mesto_vysledek_" + i +"'>" + window.localStorage.key(i) + "<span id='remove_result'></span></li>");
+        display_name = (window.localStorage.key(i).split("_")[0]);
+        $(".saved_results").append("<li id='" + window.localStorage.key(i) + "'>" + display_name + "<span id='remove_result'></span></li>");
     }
 
     $(document).on("click", "li #remove_result", function () {
-        window.localStorage.removeItem($(this).closest("li").text());
+        window.localStorage.removeItem($(this).closest("li").attr("id"));
         $(this).closest("li").remove();
     });
 
