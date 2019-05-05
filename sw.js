@@ -32,7 +32,6 @@ self.addEventListener("install", async event =>{
 });
 
 self.addEventListener("fetch", event => {
-    console.log("fetch");
     const request = event.request;
     event.respondWith(cacheFirst(request));
 });

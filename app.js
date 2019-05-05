@@ -2,9 +2,9 @@
 if ('serviceWorker' in navigator) {
     try {
         navigator.serviceWorker.register('sw.js');
-        console.log("Funguje");
+        console.log("Registrovano");
     } catch (error) {
-        console.log("Nefunguje");
+        console.log("Registrace selhala");
     }
 }
 
