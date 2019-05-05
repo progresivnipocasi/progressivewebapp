@@ -301,18 +301,17 @@ function updateClock() {
     } else {
         $("#clock").show()
     }
-        var currentTime = new Date();
-        var currentHours = currentTime.getHours();
-        var currentMinutes = currentTime.getMinutes();
-        var currentSeconds = currentTime.getSeconds();
+    var currentTime = new Date();
+    var currentHours = currentTime.getHours();
+    var currentMinutes = currentTime.getMinutes();
+    var currentSeconds = currentTime.getSeconds();
 
-        currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
-        currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+    currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
 
-        var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
+    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
 
-        $("#clock").html(currentTimeString);
-    }
+    $("#clock").html(currentTimeString);
 }
 
 
