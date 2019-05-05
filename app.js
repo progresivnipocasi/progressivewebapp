@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     clear_map_localstorage();
 
+    //vyplneni ulozenych vysledku
     for (i = 0; i < localStorage.length; i++) {
         display_name = (localStorage.key(i).split("_")[0]);
         $(".saved_results").append("<li id='" + localStorage.key(i) + "'>" + display_name + "<span id='remove_result'></span></li>");
@@ -60,7 +61,8 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
 
             populate(response);
-
+            
+            //ulozeni dat a vygenerovani hashe
             $("#add_result_button").off('click').on('click', (function () {
                 unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
                 localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
@@ -71,6 +73,7 @@ $(document).ready(function () {
         });
     });
 
+    //zobrazeni dat
     function populate(response) {
 
         dump();
