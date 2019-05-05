@@ -345,12 +345,7 @@ if (navigator.onLine) {
 
 	window.Loader = Loader;
 
-	if (window.attachEvent) {
-		window.attachEvent("onload", function() { Loader._onLoad(); });
-	} else {
-		window.addEventListener("load", function() { Loader._onLoad(); }, false);
-	}
-})();
+	Loader.load()
 
 } else {
     console.log('offline');
