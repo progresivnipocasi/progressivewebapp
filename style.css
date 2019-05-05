@@ -324,6 +324,15 @@ body main .container .results #vlhkost {
     box-shadow: 3px 0px 9px black;
 }
 
+#clock {
+    text-align: left;
+    font-size: 25px;
+    position: absolute;
+    left: 0px;
+    top: 90px;
+    display: none;
+}
+
 #remove_result {
     cursor: pointer;
 }

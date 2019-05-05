@@ -15,8 +15,6 @@ $(document).ready(function () {
         $(".saved_results").append("<li id='" + localStorage.key(i) + "'>" + display_name + "<span id='remove_result'></span></li>");
     }
 
-    //window.localStorage.clear();
-
     var server = "https://api.openweathermap.org/data/2.5/forecast?q="
     var owm_key = "&lang=cz&APPID=afb6e76426a0802ed7f8dcdb42900eab&units=metric"
 
@@ -129,9 +127,8 @@ $(document).ready(function () {
 
         });
 
-
-        //NASTAVENI     //.serializeArray    var div = $("<div></div>");   div.append("ahoj");
         $("#result_city").append(searched_city);
+        $("#clock").show();
 
         //teplota
         if ($("#teplota_radio").is(":checked") === true) {
@@ -191,7 +188,6 @@ $(document).ready(function () {
         for (key of keysToRemove) {
             window.localStorage.removeItem(key);
         }
-        console.log("smazano");
     };
 
     clear_map_localstorage();
@@ -211,7 +207,7 @@ $(document).ready(function () {
         populate(response);
     });
 
-    function create_map(response_obtained) {
+    function create_map() {
         latitude = (response_obtained.city.coord.lat);
         longitude = (response_obtained.city.coord.lon);
 
@@ -232,14 +228,10 @@ $(document).ready(function () {
 
         // Initialize Windy API
         windyInit(options, windyAPI => {
-            // windyAPI is ready, and contain 'map', 'store',
-            // 'picker' and other usefull stuff
 
             const { map } = windyAPI
             // .map is instance of Leaflet map
 
-            console.log(response);
-            console.log(response_obtained);
             L.popup()
                 .setLatLng([latitude, longitude])
                 .setContent(response_obtained.city.name + ": " + response_obtained.list[0].main.temp)
@@ -252,7 +244,6 @@ $(document).ready(function () {
     var map_created = false;
 
     $("#map_button_open").click(function () {
-
         if (search_flag && map_created) { 
             $("#windy").toggleClass("displayed_windy");
             $(".nastaveni_panel").toggle("slide");
@@ -284,7 +275,24 @@ $(document).ready(function () {
         }
         hide();
     });
+
+    setInterval('updateClock()', 1000);
 });
 
+
+function updateClock ( )
+{
+var currentTime = new Date ( );
+ var currentHours = currentTime.getHours ( );
+ var currentMinutes = currentTime.getMinutes ( );
+ var currentSeconds = currentTime.getSeconds ( );
+
+ currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+ currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+ var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
+ 
+  $("#clock").html(currentTimeString); 
+}
 
 
