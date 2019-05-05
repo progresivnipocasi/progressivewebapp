@@ -344,7 +344,7 @@ if (navigator.onLine) {
 		};
 
 		window.Loader = Loader;
-
-
-
-	}
+	})
+} else {
+	console.log("offline");
+}
