@@ -10,6 +10,8 @@ if ('serviceWorker' in navigator) {
 
 $(document).ready(function () {
 
+    clear_map_localstorage();
+
     for (i = 0; i < localStorage.length; i++) {
         display_name = (localStorage.key(i).split("_")[0]);
         $(".saved_results").append("<li id='" + localStorage.key(i) + "'>" + display_name + "<span id='remove_result'></span></li>");
@@ -190,7 +192,7 @@ $(document).ready(function () {
         }
     };
 
-    clear_map_localstorage();
+    
 
 
     
@@ -203,6 +205,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".saved_results li", function () {
         response = JSON.parse(window.localStorage.getItem($(this).attr('id')));
+        response_obtained = response;
         searched_city = $(this).text();
         populate(response);
     });
@@ -238,7 +241,7 @@ $(document).ready(function () {
                 .openOn(map);
 
         });
-        
+        clear_map_localstorage();
     }
 
     var map_created = false;
@@ -252,7 +255,6 @@ $(document).ready(function () {
             map_created = true;
             $("#windy").toggleClass("displayed_windy");
         }
-
         clear_map_localstorage();
     });
 

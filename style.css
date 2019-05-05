@@ -17,7 +17,7 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color: #fed1be;
+    background-color: #231f20;
 }
 
 body:before {
@@ -86,8 +86,12 @@ input {
     display: block;
 }
 
+.nastaveni_panel form ul li:first-child {
+    border-top: 2px solid white;
+}
+
 .nastaveni_panel form ul li {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
 }
 
 #results_table {
