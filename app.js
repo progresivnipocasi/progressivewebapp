@@ -238,6 +238,8 @@ $(document).ready(function () {
             const { map } = windyAPI
             // .map is instance of Leaflet map
 
+            console.log(response);
+            console.log(response_obtained);
             L.popup()
                 .setLatLng([latitude, longitude])
                 .setContent(response_obtained.city.name + ": " + response_obtained.list[0].main.temp)
