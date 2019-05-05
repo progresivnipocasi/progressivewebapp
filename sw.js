@@ -16,8 +16,7 @@ const permanentCode = [
     "./sources/Chart.bundle.js",
     "./sources/jquery-3.3.1.min.js",
     "./sources/leaflet.js",
-    "./sources/libBoot.js",
-    "./sources/loader.js"
+    "./sources/libBoot.js"
 ]
 
 self.addEventListener("install", async event =>{
