@@ -20,17 +20,6 @@ body {
     background-color: #231f20;
 }
 
-body:before {
-    content: "";
-    display: block;
-    width: 100%; 
-    height: 450px;
-    /*background-image: url(images/stars_2.png);*/
-    background-size: contain;
-    background-repeat: repeat-x;
-    position: absolute;
-}
-
 input {
     font-family: 'Open Sans', sans-serif;
 }
