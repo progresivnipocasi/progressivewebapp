@@ -183,9 +183,20 @@ $(document).ready(function () {
     }
 
 
-
     function clear_map_localstorage() {
-        var keysToRemove = ["UUID", "log2018", "lastSyncableUpdatedItem", "settings_country", "settings_firstUserSession", "settings_homeLocation", "settings_homeLocation_ts", "settings_ipLocation", "settings_sessionCounter201803", "settings_startUp", "webGLtest3"];
+        var keysToRemove = [
+            "UUID",
+            "log2018",
+            "lastSyncableUpdatedItem",
+            "settings_country",
+            "settings_firstUserSession",
+            "settings_homeLocation",
+            "settings_homeLocation_ts",
+            "settings_ipLocation",
+            "settings_sessionCounter201803",
+            "settings_startUp",
+            "webGLtest3"
+        ];
 
         for (key of keysToRemove) {
             window.localStorage.removeItem(key);
@@ -193,10 +204,6 @@ $(document).ready(function () {
     };
 
     
-
-
-    
-
     $(document).on("click", "li #remove_result", function(e) {
         e.stopPropagation();
         window.localStorage.removeItem($(this).closest("li").attr("id"));
@@ -249,7 +256,9 @@ $(document).ready(function () {
     $("#map_button_open").click(function () {
         if (search_flag && map_created) { 
             $("#windy").toggleClass("displayed_windy");
-            $(".nastaveni_panel").toggle("slide");
+            $(".nastaveni_panel").animate({
+                width: "toggle"
+            });
         } else if (search_flag) {
             create_map();
             map_created = true;
@@ -263,7 +272,9 @@ $(document).ready(function () {
             $(".overlay").toggleClass("displayed");
         }
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
-        $(".nastaveni_panel").toggle("slide");
+        $(".nastaveni_panel").animate({
+            width: "toggle"
+        });
     });
 
     function hide() {
@@ -273,7 +284,9 @@ $(document).ready(function () {
 
     $('.search_button').click(function () {
         if($(".nastaveni_panel").is(":visible")){
-            $(".nastaveni_panel").toggle("slide");
+            $(".nastaveni_panel").animate({
+                width: "toggle"
+            });
         }
         hide();
     });

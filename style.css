@@ -71,6 +71,8 @@ input {
 
 .nastaveni_panel form {
     padding-top: 60px;
+    min-width: 150px;
+    white-space: nowrap;
 }
 
 .nastaveni_panel form ul {
@@ -275,6 +277,8 @@ body main .container .results #vlhkost {
     padding-left: 5px;
     background-color: grey;
     margin-bottom: 10px;
+    min-width: 150px;
+    white-space: nowrap;
 }
 
 .saved_results li #remove_result {
@@ -358,6 +362,8 @@ body main .container .results #vlhkost {
     margin-bottom: 10px;
     border: none;
     padding: 10px;
+    min-width: 150px;
+    white-space: nowrap;
 }
 
 #predpoved {
