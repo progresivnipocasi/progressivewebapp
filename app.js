@@ -211,7 +211,7 @@ $(document).ready(function () {
         populate(response);
     });
 
-    function create_map(response) {
+    function create_map(response_obtained) {
         latitude = (response_obtained.city.coord.lat);
         longitude = (response_obtained.city.coord.lon);
 
@@ -240,7 +240,7 @@ $(document).ready(function () {
 
             L.popup()
                 .setLatLng([latitude, longitude])
-                .setContent(response.city.name + ": " + response.list[0].main.temp)
+                .setContent(response_obtained.city.name + ": " + response_obtained.list[0].main.temp)
                 .openOn(map);
 
         });
