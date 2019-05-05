@@ -55,7 +55,7 @@ $(document).ready(function () {
 
             populate(response);            
 
-            $("#add_result_button").on('click',(function() {
+            $("#add_result_button").off('click').on('click',(function() {
                     unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
                     localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
                     $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");      
