@@ -240,7 +240,7 @@ $(document).ready(function () {
 
             L.popup()
                 .setLatLng([latitude, longitude])
-                .setContent(obtained_response.city.name + ": " + obtained_response.list[0].main.temp)
+                .setContent(response.city.name + ": " + response.list[0].main.temp)
                 .openOn(map);
 
         });
