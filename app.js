@@ -296,7 +296,7 @@ $(document).ready(function () {
 
 
 function updateClock() {
-    if ($("#error_message").text().length != 0) {
+    if ($("#error_message").text().length != 1) {
         $("#clock").hide();
     } else {
         $("#clock").show()
