@@ -280,14 +280,6 @@ body main .container .results #vlhkost {
 
 }
 
-#odeslat, .favorite_button {
-    padding: 10px 10px;
-    font-size: 20px;
-    border: none;
-    
-    background-color: transparent;
-    color: white;
-}
 
 #odeslat {
     position: absolute;
@@ -296,6 +288,11 @@ body main .container .results #vlhkost {
     height: 75px;
     background-color: grey;
     width: 100%;
+    -webkit-appearance: none;
+    padding: 10px 10px;
+    font-size: 20px;
+    border: none;
+    color: white;
 }
 
 #error_message {
@@ -440,6 +437,8 @@ body main .container .results #vlhkost {
     position: absolute;
     bottom: 20px;
 }
+
+
 
 @media screen and (max-width: 992px) {
     .temp_graph {
