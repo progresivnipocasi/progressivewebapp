@@ -4,7 +4,20 @@ const permanentCode = [
     "./app.js",
     "./images/cogwheel.png",
     "./images/search.png",
-    "./images/close.png"
+    "./images/close.png",
+    "./images/humidity.png",
+    "./images/max_temp.png",
+    "./images/min_temp.png",
+    "./images/pressure.png",
+    "./images/vitr.png",
+    "./images/icons/icon-32x32.png",
+    "./images/icons/icon-128x128.png",
+    "./sources/Chart.bundle.js",
+    "./sources/jquery-3.3.1.min.js",
+    "./sources/jquery-ui.min.js",
+    "./sources/leaflet.js",
+    "./sources/libBoot.js",
+    "./sources/loader.js"
 ]
 
 self.addEventListener("install", async event =>{
