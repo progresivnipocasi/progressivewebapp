@@ -2,6 +2,7 @@ const permanentCode = [
     "./",
     "./style.css",
     "./app.js",
+    "./manifest.json",
     "./images/cogwheel.png",
     "./images/search.png",
     "./images/close.png",
@@ -14,7 +15,6 @@ const permanentCode = [
     "./images/icons/icon-128x128.png",
     "./sources/Chart.bundle.js",
     "./sources/jquery-3.3.1.min.js",
-    "./sources/jquery-ui.min.js",
     "./sources/leaflet.js",
     "./sources/libBoot.js",
     "./sources/loader.js"

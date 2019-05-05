@@ -321,6 +321,7 @@ body main .container .results #vlhkost {
     z-index: 5;
     overflow: auto;
     max-height: 100vh;
+    box-shadow: 3px 0px 9px black;
 }
 
 #remove_result {
