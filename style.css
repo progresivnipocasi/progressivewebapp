@@ -17,7 +17,7 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color: black;
+    background-color: #fed1be;
 }
 
 body:before {
