@@ -262,7 +262,7 @@ $(document).ready(function () {
     $("#map_button_open").click(function () {
         if (search_flag && map_created) {
             $("#windy").toggleClass("displayed_windy");
-            $(".nastaveni_panel").animate({
+            $(".settings_panel").animate({
                 width: "toggle"
             });
         } else if (search_flag) {
@@ -273,12 +273,12 @@ $(document).ready(function () {
         clear_map_localstorage();
     });
 
-    $('.nastaveni').click(function schovat() {
+    $('.settings_icon').click(function schovat() {
         if ($(".overlay").hasClass("displayed")) {
             $(".overlay").toggleClass("displayed");
         }
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
-        $(".nastaveni_panel").animate({
+        $(".settings_panel").animate({
             width: "toggle"
         });
     });
@@ -289,8 +289,8 @@ $(document).ready(function () {
     };
 
     $('.search_button').click(function () {
-        if ($(".nastaveni_panel").is(":visible")) {
-            $(".nastaveni_panel").animate({
+        if ($(".settings_panel").is(":visible")) {
+            $(".settings_panel").animate({
                 width: "toggle"
             });
         }

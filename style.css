@@ -20,10 +20,6 @@ body {
     background-color: #231f20;
 }
 
-input {
-    font-family: 'Open Sans', sans-serif;
-}
-
 .overlay {
     display: none;
     z-index: 2;
@@ -45,7 +41,7 @@ input {
     background-image: url(images/close.png) !important;
 }
 
-.nastaveni {
+.settings_icon {
     cursor: pointer;
     display: inline-block;
     width: 35px;
@@ -58,18 +54,18 @@ input {
     z-index: 6;
 }
 
-.nastaveni_panel form {
+.settings_panel form {
     padding-top: 60px;
     min-width: 150px;
     white-space: nowrap;
 }
 
-.nastaveni_panel form ul {
+.settings_panel form ul {
     list-style-type: none;
     padding: 0px;
 }
 
-.nastaveni_panel form ul label {
+.settings_panel form ul label {
     width: 100%;
     height: 40px;
     padding-top: 15px;
@@ -77,11 +73,11 @@ input {
     display: block;
 }
 
-.nastaveni_panel form ul li:first-child {
+.settings_panel form ul li:first-child {
     border-top: 2px solid white;
 }
 
-.nastaveni_panel form ul li {
+.settings_panel form ul li {
     border-bottom: 2px solid white;
 }
 
@@ -103,7 +99,6 @@ input {
     display: none;
 }
  
-
 .container {
     z-index: 1;
 }
@@ -126,17 +121,6 @@ input {
     display: none;
 }
 
-/*
-#map {
-    height: 150px;
-}*/
-
-.vypis {
-    display: block;
-    width: 100%;
-    margin-top: 50px;
-}
-
 .top {
     position: relative;
     color: white;
@@ -145,7 +129,6 @@ input {
 .results {
     font-size: 25px;
     color: white;
-    /*margin-top: 20px;*/
     display: block;
     width: 100%;
     margin: auto;
@@ -221,41 +204,6 @@ body main .container .results #vlhkost {
     padding-right: 30px;
 }
 
-.vypis_wrapper {
-    display: block;
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.vypis_bar {
-    display: block;
-    width: 100%;
-    height: 25px;
-    background-color: black;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.vypis_okno {
-    display: block;
-    width: 100%;
-    color: black;
-}
-
-.favorite_button {
-    cursor: pointer;
-}
-
-.vypis_zobrazit {
-    cursor: pointer;
-    float: right;
-    font-weight: bold;
-    color: white;
-    margin-right: 25px;
-    margin-top: 5px;
-}
-
 .vypln {
     text-align: center;
     margin-top: 30%;
@@ -267,6 +215,7 @@ body main .container .results #vlhkost {
     background-color: grey;
     margin-bottom: 10px;
     min-width: 150px;
+    line-height: 30px;
     white-space: nowrap;
 }
 
@@ -276,10 +225,10 @@ body main .container .results #vlhkost {
     background-image: url(images/close.png);
     background-size: 20px;
     margin-right: 5px;
-    margin-top: 4px;
+    margin-top: 5px;
+    cursor: pointer;
 
 }
-
 
 #odeslat {
     position: absolute;
@@ -301,7 +250,7 @@ body main .container .results #vlhkost {
     padding-top: 60px;
 }
 
-.nastaveni_panel {
+.settings_panel {
     text-align: left;
     font-size: 20px;
     display: block;
@@ -318,29 +267,20 @@ body main .container .results #vlhkost {
     box-shadow: 3px 0px 9px black;
 }
 
-#clock {
-    text-align: left;
-    font-size: 25px;
-    position: absolute;
-    left: 0px;
-    top: 90px;
-    display: none;
+.settings_panel input {
+    margin-bottom: 0px;
 }
 
-#remove_result {
-    cursor: pointer;
-}
-
-.nastaveni_panel .saved_results {
+.settings_panel .saved_results {
     padding: 0px 10px;
 }
 
-.nastaveni_panel .saved_results span {
+.settings_panel .saved_results span {
     float: right;
     width: 20px;
 }
 
-.nastaveni_panel button {
+.settings_panel button {
     width: 100%;
     background-color: grey;
     color: white;
@@ -352,9 +292,13 @@ body main .container .results #vlhkost {
     white-space: nowrap;
 }
 
-#predpoved {
-    width: 50px;
-    margin-right: 10px;
+#clock {
+    text-align: left;
+    font-size: 25px;
+    position: absolute;
+    left: 0px;
+    top: 90px;
+    display: none;
 }
 
 #mesto {
@@ -373,10 +317,6 @@ body main .container .results #vlhkost {
 
 #mesto:focus {
     outline: none;
-}
-
-.nastaveni_panel input {
-    margin-bottom: 0px;
 }
 
 .graph_one div {
@@ -438,11 +378,29 @@ body main .container .results #vlhkost {
     bottom: 20px;
 }
 
-
-
-@media screen and (max-width: 992px) {
-    .temp_graph {
-        width: 100%;
-        display: block;
+@media screen and (max-width: 639px) {
+    body main .container .results #teplota {
+        font-size: 30px;
     }
-  }
+
+    body main .container .results #result_city {
+        font-size: 24px;
+        top: 35px;
+    }
+
+    body main .container .results #clock {
+        top: 65px;
+    }
+
+    .results .results_wrapper {
+        line-height: 21px;
+    }
+
+    #results_table {
+        height: 100px;
+    }
+
+    #results_table #results_table_detail {
+        font-size: 12px;
+    }
+}
