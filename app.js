@@ -33,6 +33,12 @@ $(document).ready(function () {
         searched_city = $('#mesto').val();
         e.preventDefault();
 
+        if ($("#error_message").text().length != 1) {
+            $("#clock").hide();
+        } else {
+            $("#clock").show()
+        }
+
         hide();
 
         var settings = {
@@ -296,11 +302,6 @@ $(document).ready(function () {
 
 
 function updateClock() {
-    if ($("#error_message").text().length != 1) {
-        $("#clock").hide();
-    } else {
-        $("#clock").show()
-    }
     var currentTime = new Date();
     var currentHours = currentTime.getHours();
     var currentMinutes = currentTime.getMinutes();
