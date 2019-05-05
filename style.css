@@ -268,6 +268,9 @@ body main .container .results #vlhkost {
 
 .saved_results li {
     list-style-type: none;
+    padding-left: 5px;
+    background-color: grey;
+    margin-bottom: 10px;
 }
 
 .saved_results li #remove_result {
@@ -275,6 +278,9 @@ body main .container .results #vlhkost {
     height: 20px;
     background-image: url(images/close.png);
     background-size: 20px;
+    margin-right: 5px;
+    margin-top: 4px;
+
 }
 
 #odeslat, .favorite_button {
@@ -322,7 +328,7 @@ body main .container .results #vlhkost {
 }
 
 .nastaveni_panel .saved_results {
-    padding-left: 10px;
+    padding: 0px 10px;
 }
 
 .nastaveni_panel .saved_results span {
@@ -410,7 +416,7 @@ body main .container .results #vlhkost {
 }
 
 #windy #logo-wrapper {
-    display: none !important;
+    display: block !important;
 }
 
 #windy #logo-wrapper #logo {
@@ -423,7 +429,7 @@ body main .container .results #vlhkost {
     height: 150px;
     margin: auto;
     position: absolute;
-    bottom: 25px;
+    bottom: 20px;
 }
 
 @media screen and (max-width: 992px) {

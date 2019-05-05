@@ -26,8 +26,6 @@ $(document).ready(function () {
 
     search_flag = false;
 
-    var response_obtained = null;
-
     $('.vypln').submit(function (e) {
         searched_city = $('#mesto').val();
         e.preventDefault();
@@ -40,31 +38,29 @@ $(document).ready(function () {
             "url": server + searched_city + owm_key,
             "method": "GET",
             success: function (response) {
-                response_obtained = response;
-
+                console.log("odpoved ziskana");
             },
-            error: function (e) {
+            error: function () {
                 dump();
                 $("#error_message").append("Nenalezeno");
             }
         }
 
-
+        
         $.ajax(settings).done(function (response) {
 
-            populate(response);            
-
-            $("#add_result_button").on('click',(function() {
-                    unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-                    localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
-                    $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");      
+            populate(response);
+            $("#add_result_button").on('click', (function () {
+                unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+                localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
+                $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");
             }));
 
 
         });
     });
 
-    function populate(response){
+    function populate(response) {
 
         dump();
 
@@ -195,14 +191,12 @@ $(document).ready(function () {
 
     clear_map_localstorage();
 
-
-    for (i = 0; i < window.localStorage.length; i++) {
-        display_name = (window.localStorage.key(i).split("_")[0]);
-
-        $(".saved_results").append("<li id='" + window.localStorage.key(i) + "'>" + display_name + "<span id='remove_result'></span></li>");
+    for (i = 0; i < localStorage.length; i++) {
+        display_name = (localStorage.key(i).split("_")[0]);
+        $(".saved_results").append("<li id='" + localStorage.key(i) + "'>" + display_name + "<span id='remove_result'></span></li>");
     }
 
-    $(document).on("click", "li #remove_result", function(e) {
+    $(document).on("click", "li #remove_result", function (e) {
         e.stopPropagation();
         window.localStorage.removeItem($(this).closest("li").attr("id"));
         $(this).closest("li").remove();
@@ -211,12 +205,12 @@ $(document).ready(function () {
     $(document).on("click", ".saved_results li", function () {
         response = JSON.parse(window.localStorage.getItem($(this).attr('id')));
         searched_city = $(this).text();
-        populate(response)
+        populate(response);
     });
 
     function create_map() {
-        latitude = (response_obtained.city.coord.lat);
-        longitude = (response_obtained.city.coord.lon);
+        latitude = (response.city.coord.lat);
+        longitude = (response.city.coord.lon);
 
 
         const options = {
@@ -243,29 +237,34 @@ $(document).ready(function () {
 
             L.popup()
                 .setLatLng([latitude, longitude])
-                .setContent(response.city.name + ": " + response_obtained.list[0].main.temp)
+                .setContent(response.city.name + ": " + response.list[0].main.temp)
                 .openOn(map);
 
         });
-        
+
     }
 
     var map_created = false;
 
     $("#map_button_open").click(function () {
 
-        if (search_flag && map_created) { 
+        if (search_flag && map_created) {
             $("#windy").toggleClass("displayed_windy");
+            $(".nastaveni_panel").toggle("slide");
         } else if (search_flag) {
             create_map();
             map_created = true;
             $("#windy").toggleClass("displayed_windy");
+            $(".nastaveni_panel").toggle("slide");
         }
 
         clear_map_localstorage();
     });
 
-    $('.nastaveni').click(function () {
+    $('.nastaveni').click(function schovat() {
+        if ($(".overlay").hasClass("displayed")) {
+            $(".overlay").toggleClass("displayed");
+        }
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
         $(".nastaveni_panel").toggle("slide");
     });
@@ -276,6 +275,9 @@ $(document).ready(function () {
     };
 
     $('.search_button').click(function () {
+        if ($(".nastaveni_panel").is(":visible")) {
+            $(".nastaveni_panel").toggle("slide");
+        }
         hide();
     });
 });
