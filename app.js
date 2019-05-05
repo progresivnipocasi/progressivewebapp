@@ -296,7 +296,11 @@ $(document).ready(function () {
 
 
 function updateClock ( )
+if($("#error_message.length").length != 0) {
+    $("#clock").hide();
+} else 
 {
+    $("#clock").show()
 var currentTime = new Date ( );
  var currentHours = currentTime.getHours ( );
  var currentMinutes = currentTime.getMinutes ( );

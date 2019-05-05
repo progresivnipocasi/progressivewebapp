@@ -298,7 +298,7 @@ body main .container .results #vlhkost {
 #error_message {
     font-size: 25px;
     color: white;
-    /*margin-top: 20px;*/
+    padding-top: 60px;
 }
 
 .nastaveni_panel {
