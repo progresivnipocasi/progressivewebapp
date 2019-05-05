@@ -53,19 +53,19 @@ $(document).ready(function () {
 
         $.ajax(settings).done(function (response) {
 
-            populate(response);            
+            populate(response);
 
-            $("#add_result_button").off('click').on('click',(function() {
-                    unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-                    localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
-                    $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");      
+            $("#add_result_button").off('click').on('click', (function () {
+                unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+                localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
+                $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");
             }));
 
 
         });
     });
 
-    function populate(response){
+    function populate(response) {
 
         dump();
 
@@ -203,8 +203,8 @@ $(document).ready(function () {
         }
     };
 
-    
-    $(document).on("click", "li #remove_result", function(e) {
+
+    $(document).on("click", "li #remove_result", function (e) {
         e.stopPropagation();
         window.localStorage.removeItem($(this).closest("li").attr("id"));
         $(this).closest("li").remove();
@@ -254,7 +254,7 @@ $(document).ready(function () {
     var map_created = false;
 
     $("#map_button_open").click(function () {
-        if (search_flag && map_created) { 
+        if (search_flag && map_created) {
             $("#windy").toggleClass("displayed_windy");
             $(".nastaveni_panel").animate({
                 width: "toggle"
@@ -268,7 +268,7 @@ $(document).ready(function () {
     });
 
     $('.nastaveni').click(function schovat() {
-        if($(".overlay").hasClass("displayed")){
+        if ($(".overlay").hasClass("displayed")) {
             $(".overlay").toggleClass("displayed");
         }
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
@@ -283,7 +283,7 @@ $(document).ready(function () {
     };
 
     $('.search_button').click(function () {
-        if($(".nastaveni_panel").is(":visible")){
+        if ($(".nastaveni_panel").is(":visible")) {
             $(".nastaveni_panel").animate({
                 width: "toggle"
             });
@@ -295,23 +295,24 @@ $(document).ready(function () {
 });
 
 
-function updateClock ( )
-if($("#error_message.length").length != 0) {
-    $("#clock").hide();
-} else 
-{
-    $("#clock").show()
-var currentTime = new Date ( );
- var currentHours = currentTime.getHours ( );
- var currentMinutes = currentTime.getMinutes ( );
- var currentSeconds = currentTime.getSeconds ( );
+function updateClock() {
+    if ($("#error_message").length != 0) {
+        $("#clock").hide();
+    } else {
+        $("#clock").show()
+    }
+        var currentTime = new Date();
+        var currentHours = currentTime.getHours();
+        var currentMinutes = currentTime.getMinutes();
+        var currentSeconds = currentTime.getSeconds();
 
- currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
- currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+        currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+        currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
 
- var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
- 
-  $("#clock").html(currentTimeString); 
+        var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
+
+        $("#clock").html(currentTimeString);
+    }
 }
 
 
