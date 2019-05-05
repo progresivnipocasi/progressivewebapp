@@ -211,7 +211,7 @@ $(document).ready(function () {
         populate(response);
     });
 
-    function create_map() {
+    function create_map(response) {
         latitude = (response_obtained.city.coord.lat);
         longitude = (response_obtained.city.coord.lon);
 
