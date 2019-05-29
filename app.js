@@ -181,6 +181,15 @@ $(document).ready(function () {
         $("#result_city").append(searched_city);
         $("#clock").show();
 
+        let teplota = (response.list[0].main.temp).toString();
+        $("#teplota").append(teplota + "°C").show('slow');
+
+        vlhkost = (response.list[0].main.humidity);
+            $("#vlhkost").append(vlhkost);
+
+            min_temp = (response.list[0].main.temp_min);
+            $("#min-temp").append(min_temp + "°C");
+/*
         //teplota
         if ($("#teplota_radio").is(":checked") === true) {
             let teplota = (response.list[0].main.temp).toString();
@@ -197,7 +206,7 @@ $(document).ready(function () {
         if ($("#min_teplota_radio").is(":checked") === true) {
             min_temp = (response.list[0].main.temp_min);
             $("#min-temp").append(min_temp + "°C");
-        }
+        }*/
 
         //max. teplota
         if ($("#max_teplota_radio").is(":checked") === true) {
