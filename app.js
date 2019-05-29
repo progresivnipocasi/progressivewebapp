@@ -8,16 +8,12 @@ if ('serviceWorker' in navigator) {
     }
 }
 
-
-
-
 $(document).ready(function () {
 
 
     if ("geolocation" in navigator){
 		navigator.geolocation.getCurrentPosition(function(position){ 
-                console.log(position.coords.latitude, position.coords.longitude);
-                
+
                 var settings = {
                     "async": true,
                     "crossDomain": true,
@@ -31,7 +27,6 @@ $(document).ready(function () {
                         $("#error_message").append("Nenalezeno");
                     }
                 }
-        
         
                 $.ajax(settings).done(function (location_city) {
                     searched_city = location_city.address.city;
@@ -74,8 +69,6 @@ $(document).ready(function () {
 
         });
     }
-
-
 
     clear_map_localstorage();
 
@@ -198,12 +191,9 @@ $(document).ready(function () {
                 '<td>' + response.list[i].wind.speed + ' m/s</td>' +
                 '<td>' + response.list[i].weather[0].description + '</td>' +
                 '</tr>');
-
         }
-
     }
     
-
     $(function () {
         $('#teplota_radio').change(function () {               
            $('#teplota').toggleClass("hidden", !this.checked);
@@ -366,5 +356,3 @@ function updateClock() {
 
     $("#clock").html(currentTimeString);
 }
-
-
