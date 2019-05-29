@@ -21,6 +21,7 @@ $(document).ready(function () {
                 "method": "GET",
                 success: function (location_city) {
                     console.log("lokace obdrzena");
+                    search_flag = true;
                 },
                 error: function (e) {
                     dump();
@@ -270,7 +271,6 @@ $(document).ready(function () {
         $(".settings_panel").animate({
             width: "toggle"
         });
-
     });
 
     function create_map() {
