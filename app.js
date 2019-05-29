@@ -234,37 +234,37 @@ $(document).ready(function () {
 
     $(function () {
         $('#teplota_radio').change(function () {               
-           $('#teplota').toggleClass("hidden", this.checked);
+           $('#teplota').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
       });
 
       $(function () {
         $('#vlhkost_radio').change(function () {               
-           $('#vlhkost').toggleClass("hidden", this.checked);
+           $('#vlhkost').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
       });
 
       $(function () {
         $('#min_teplota_radio').change(function () {               
-           $('#min-temp').toggle(this.checked);
+           $('#min-temp').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
       });
 
       $(function () {
         $('#max_teplota_radio').change(function () {               
-           $('#max-temp').toggle(this.checked);
+           $('#max-temp').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
       });
 
       $(function () {
         $('#tlak_radio').change(function () {               
-           $('#tlak').toggle(this.checked);
+           $('#tlak').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
       });
 
       $(function () {
         $('#vitr_radio').change(function () {               
-           $('#vitr').toggle(this.checked);
+           $('#vitr').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
       });
 
