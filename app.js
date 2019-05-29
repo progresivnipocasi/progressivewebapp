@@ -16,11 +16,34 @@ $(document).ready(function () {
 
     if ("geolocation" in navigator){
 		navigator.geolocation.getCurrentPosition(function(position){ 
-				console.log(position.coords.latitude, position.coords.longitude);
+                console.log(position.coords.latitude, position.coords.longitude);
+                
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&zoom=18&addressdetails=1",
+                    "method": "GET",
+                    success: function (response) {
+                        response_obtained = response;
+        
+                    },
+                    error: function (e) {
+                        dump();
+                        $("#error_message").append("Nenalezeno");
+                    }
+                }
+        
+        
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    populate(response);
+        
+                });
+
 			});
 	}else{
 		console.log("Browser doesn't support geolocation!");
-	}
+    }
 
 
 
