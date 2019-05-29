@@ -23,9 +23,8 @@ $(document).ready(function () {
                     "crossDomain": true,
                     "url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&zoom=18&addressdetails=1",
                     "method": "GET",
-                    success: function (response) {
-                        response_obtained = response;
-        
+                    success: function () {
+                        console.log("lokace obdrzena");
                     },
                     error: function (e) {
                         dump();
@@ -34,10 +33,8 @@ $(document).ready(function () {
                 }
         
         
-                $.ajax(settings).done(function (response) {
-                    console.log(response);
-                    populate(response);
-        
+                $.ajax(settings).done(function (location_city) {
+                    console.log(location_city.adress.city)
                 });
 
 			});
