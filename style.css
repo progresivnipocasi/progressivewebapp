@@ -378,6 +378,10 @@ body main .container .results #vlhkost {
     bottom: 20px;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 @media screen and (max-width: 639px) {
     body main .container .results #teplota {
         font-size: 30px;

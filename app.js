@@ -234,13 +234,13 @@ $(document).ready(function () {
 
     $(function () {
         $('#teplota_radio').change(function () {               
-           $('#teplota').toggle(this.checked);
+           $('#teplota').toggleClass("hidden", this.checked);
         }).change(); //ensure visible state matches initially
       });
 
       $(function () {
         $('#vlhkost_radio').change(function () {               
-           $('#vlhkost').toggle(this.checked);
+           $('#vlhkost').toggleClass("hidden", this.checked);
         }).change(); //ensure visible state matches initially
       });
 
