@@ -99,17 +99,13 @@ body {
     display: block;
     overflow: auto;
     font-size: 15px;
+    scrollbar-width: none;
 }
 
 #results_table #results_table_detail {
     width: 80%;
     margin: auto;
     background: rgba(58, 63, 59, 0.4);
-}
-
-
-#results_table::-webkit-scrollbar {
-    display: none;
 }
 
 ::-webkit-scrollbar {
