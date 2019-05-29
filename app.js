@@ -14,18 +14,13 @@ if ('serviceWorker' in navigator) {
 $(document).ready(function () {
 
 
-    function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-          console.log("geolokace nepodporovana");
-        }
-      }
-      
-      function showPosition(position) {
-          console.log(getCurrentPosition());
-        console.log(position.coords.latitude, position.coords.longitude); 
-      }
+    if ("geolocation" in navigator){
+		navigator.geolocation.getCurrentPosition(function(position){ 
+				console.log(position.coords.latitude, position.coords.longitude);
+			});
+	}else{
+		console.log("Browser doesn't support geolocation!");
+	}
 
 
 
