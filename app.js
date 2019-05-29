@@ -233,32 +233,32 @@ $(document).ready(function () {
 
     //teplota
     if ($("#teplota_radio").is(":checked") === false) {
-        $("#teplota").hide();
+        $("#teplota").toggle();
     }
 
     //vlhkost
-    if ($("#vlhkost_radio").is(":checked") === true) {
-        $("#vlhkost").hide();
+    if ($("#vlhkost_radio").is(":checked") === false) {
+        $("#vlhkost").toggle();
     }
 
     //min. teplota
-    if ($("#min_teplota_radio").is(":checked") === true) {
-        $("#min-temp").hide();
+    if ($("#min_teplota_radio").is(":checked") === false) {
+        $("#min-temp").toggle();
     }
 
     //max. teplota
-    if ($("#max_teplota_radio").is(":checked") === true) {
-        $("#max-temp").hide();
+    if ($("#max_teplota_radio").is(":checked") === false) {
+        $("#max-temp").toggle();
     }
 
     //tlak
-    if ($("#tlak_radio").is(":checked") === true) {
-        $("#tlak").hide();
+    if ($("#tlak_radio").is(":checked") === false) {
+        $("#tlak").toggle();
     }
 
     //vitr
-    if ($("#vitr_radio").is(":checked") === true) {
-        $("#vitr").hide();
+    if ($("#vitr_radio").is(":checked") === false) {
+        $("#vitr").toggle();
     }
 
 
