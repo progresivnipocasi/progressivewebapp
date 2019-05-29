@@ -11,31 +11,31 @@ if ('serviceWorker' in navigator) {
 $(document).ready(function () {
 
 
-    if ("geolocation" in navigator){
-		navigator.geolocation.getCurrentPosition(function(position){ 
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
 
-                var settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&zoom=18&addressdetails=1",
-                    "method": "GET",
-                    success: function (location_city) {
-                        console.log("lokace obdrzena");
-                    },
-                    error: function (e) {
-                        dump();
-                        $("#error_message").append("Nenalezeno");
-                    }
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&zoom=18&addressdetails=1",
+                "method": "GET",
+                success: function (location_city) {
+                    console.log("lokace obdrzena");
+                },
+                error: function (e) {
+                    dump();
+                    $("#error_message").append("Nenalezeno");
                 }
-        
-                $.ajax(settings).done(function (location_city) {
-                    searched_city = location_city.address.city;
-                    return_weather();
-                });
+            }
 
-			});
-	}else{
-		console.log("Browser doesn't support geolocation!");
+            $.ajax(settings).done(function (location_city) {
+                searched_city = location_city.address.city;
+                return_weather();
+            });
+
+        });
+    } else {
+        console.log("Browser doesn't support geolocation!");
     }
 
     function return_weather() {
@@ -58,7 +58,7 @@ $(document).ready(function () {
         $.ajax(settings).done(function (response) {
 
             populate(response);
-            
+
             //ulozeni dat a vygenerovani hashe
             $("#add_result_button").off('click').on('click', (function () {
                 unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
@@ -70,7 +70,7 @@ $(document).ready(function () {
         });
     }
 
-    $(".refresh_button").click(function(){
+    $(".refresh_button").click(function () {
         return_weather();
     });
 
@@ -197,42 +197,42 @@ $(document).ready(function () {
                 '</tr>');
         }
     }
-    
+
     $(function () {
-        $('#teplota_radio').change(function () {               
-           $('#teplota').toggleClass("hidden", !this.checked);
+        $('#teplota_radio').change(function () {
+            $('#teplota').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
-      });
+    });
 
-      $(function () {
-        $('#vlhkost_radio').change(function () {               
-           $('#vlhkost').toggleClass("hidden", !this.checked);
+    $(function () {
+        $('#vlhkost_radio').change(function () {
+            $('#vlhkost').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
-      });
+    });
 
-      $(function () {
-        $('#min_teplota_radio').change(function () {               
-           $('#min-temp').toggleClass("hidden", !this.checked);
+    $(function () {
+        $('#min_teplota_radio').change(function () {
+            $('#min-temp').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
-      });
+    });
 
-      $(function () {
-        $('#max_teplota_radio').change(function () {               
-           $('#max-temp').toggleClass("hidden", !this.checked);
+    $(function () {
+        $('#max_teplota_radio').change(function () {
+            $('#max-temp').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
-      });
+    });
 
-      $(function () {
-        $('#tlak_radio').change(function () {               
-           $('#tlak').toggleClass("hidden", !this.checked);
+    $(function () {
+        $('#tlak_radio').change(function () {
+            $('#tlak').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
-      });
+    });
 
-      $(function () {
-        $('#vitr_radio').change(function () {               
-           $('#vitr').toggleClass("hidden", !this.checked);
+    $(function () {
+        $('#vitr_radio').change(function () {
+            $('#vitr').toggleClass("hidden", !this.checked);
         }).change(); //ensure visible state matches initially
-      });
+    });
 
 
     function clear_map_localstorage() {
@@ -267,6 +267,10 @@ $(document).ready(function () {
         response_obtained = response;
         searched_city = $(this).text();
         populate(response);
+        $(".settings_panel").animate({
+            width: "toggle"
+        });
+
     });
 
     function create_map() {
@@ -334,7 +338,7 @@ $(document).ready(function () {
         $(".overlay").toggleClass("displayed");
     };
 
-    $('.search_button').click(function() {
+    $('.search_button').click(function () {
         if ($(".settings_panel").is(":visible")) {
             $(".settings_panel").animate({
                 width: "toggle"
