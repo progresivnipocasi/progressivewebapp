@@ -232,7 +232,8 @@ $(document).ready(function () {
     }
 
     $(function () {
-        $('#teplota_radio').change(function () {                
+        $('#teplota_radio').change(function () {    
+            console.log("zmena");            
            $('#teplota').toggle(!this.checked);
         }).change(); //ensure visible state matches initially
       });
