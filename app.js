@@ -23,7 +23,7 @@ $(document).ready(function () {
                     "crossDomain": true,
                     "url": "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&zoom=18&addressdetails=1",
                     "method": "GET",
-                    success: function () {
+                    success: function (location_city) {
                         console.log("lokace obdrzena");
                     },
                     error: function (e) {
