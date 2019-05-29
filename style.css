@@ -107,6 +107,11 @@ body {
     background: rgba(58, 63, 59, 0.4);
 }
 
+
+#results_table::-webkit-scrollbar {
+    display: none;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
