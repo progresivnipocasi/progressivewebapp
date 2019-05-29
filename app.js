@@ -34,8 +34,8 @@ $(document).ready(function () {
         
         
                 $.ajax(settings).done(function (location_city) {
-                    console.log(location_city);
-                    console.log(location_city.adress.city);
+                    console.log(location_city); 
+                    console.log(location_city.address.city);
                 });
 
 			});
