@@ -231,6 +231,12 @@ $(document).ready(function () {
 
     }
 
+    $(function () {
+        $('#teplota_radio').change(function () {                
+           $('#teplota').toggle(!this.checked);
+        }).change(); //ensure visible state matches initially
+      });
+
     //teplota
     if ($("#teplota_radio").is(":checked") === false) {
         $("#teplota").toggle();
