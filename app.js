@@ -34,13 +34,44 @@ $(document).ready(function () {
         
         
                 $.ajax(settings).done(function (location_city) {
-                    console.log(location_city); 
-                    console.log(location_city.address.city);
+                    
                 });
 
 			});
 	}else{
 		console.log("Browser doesn't support geolocation!");
+    }
+
+    function return_weather() {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": server + searched_city + owm_key,
+            "method": "GET",
+            success: function (response) {
+                response_obtained = response;
+
+            },
+            error: function (e) {
+                dump();
+                $("#error_message").append("Nenalezeno");
+            }
+        }
+
+
+        $.ajax(settings).done(function (response) {
+
+            populate(response);
+            
+            //ulozeni dat a vygenerovani hashe
+            $("#add_result_button").off('click').on('click', (function () {
+                unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+                localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
+                $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");
+            }));
+
+
+        });
     }
 
 
@@ -77,35 +108,8 @@ $(document).ready(function () {
 
         hide();
 
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": server + searched_city + owm_key,
-            "method": "GET",
-            success: function (response) {
-                response_obtained = response;
+        return_weather();
 
-            },
-            error: function (e) {
-                dump();
-                $("#error_message").append("Nenalezeno");
-            }
-        }
-
-
-        $.ajax(settings).done(function (response) {
-
-            populate(response);
-            
-            //ulozeni dat a vygenerovani hashe
-            $("#add_result_button").off('click').on('click', (function () {
-                unique_save_hash = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-                localStorage.setItem(searched_city + "_" + unique_save_hash, JSON.stringify(response));
-                $(".saved_results").append("<li id='" + searched_city + "_" + unique_save_hash + "'>" + searched_city + "<span id='remove_result'></span></li>");
-            }));
-
-
-        });
     });
 
     //zobrazeni dat
