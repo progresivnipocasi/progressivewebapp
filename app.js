@@ -231,6 +231,36 @@ $(document).ready(function () {
 
     }
 
+    //teplota
+    if ($("#teplota_radio").is(":checked") === false) {
+        $("#teplota").hide();
+    }
+
+    //vlhkost
+    if ($("#vlhkost_radio").is(":checked") === true) {
+        $("#vlhkost").hide();
+    }
+
+    //min. teplota
+    if ($("#min_teplota_radio").is(":checked") === true) {
+        $("#min-temp").hide();
+    }
+
+    //max. teplota
+    if ($("#max_teplota_radio").is(":checked") === true) {
+        $("#max-temp").hide();
+    }
+
+    //tlak
+    if ($("#tlak_radio").is(":checked") === true) {
+        $("#tlak").hide();
+    }
+
+    //vitr
+    if ($("#vitr_radio").is(":checked") === true) {
+        $("#vitr").hide();
+    }
+
 
     function clear_map_localstorage() {
         var keysToRemove = [
