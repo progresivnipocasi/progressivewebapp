@@ -318,6 +318,9 @@ $(document).ready(function () {
             create_map();
             map_created = true;
             $("#windy").toggleClass("displayed_windy");
+            $(".settings_panel").animate({
+                width: "toggle"
+            });
         }
         clear_map_localstorage();
     });
