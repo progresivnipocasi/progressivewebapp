@@ -70,6 +70,10 @@ $(document).ready(function () {
         });
     }
 
+    $(".refresh_button").click(function(){
+        return_weather();
+    });
+
     clear_map_localstorage();
 
     //vyplneni ulozenych vysledku
@@ -342,9 +346,7 @@ $(document).ready(function () {
     setInterval('updateClock()', 1000);
 });
 
-$(".refresh_button").click(function(){
-    return_weather();
-});
+
 
 
 function updateClock() {
