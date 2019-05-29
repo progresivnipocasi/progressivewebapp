@@ -183,48 +183,11 @@ $(document).ready(function () {
 
         let teplota = (response.list[0].main.temp).toString();
         $("#teplota").append(teplota + "°C").show('slow');
-
-        vlhkost = (response.list[0].main.humidity);
-            $("#vlhkost").append(vlhkost);
-
-            min_temp = (response.list[0].main.temp_min);
-            $("#min-temp").append(min_temp + "°C");
-/*
-        //teplota
-        if ($("#teplota_radio").is(":checked") === true) {
-            let teplota = (response.list[0].main.temp).toString();
-            $("#teplota").append(teplota + "°C").show('slow');
-        }
-
-        //vlhkost
-        if ($("#vlhkost_radio").is(":checked") === true) {
-            vlhkost = (response.list[0].main.humidity);
-            $("#vlhkost").append(vlhkost);
-        }
-
-        //min. teplota
-        if ($("#min_teplota_radio").is(":checked") === true) {
-            min_temp = (response.list[0].main.temp_min);
-            $("#min-temp").append(min_temp + "°C");
-        }*/
-
-        //max. teplota
-        if ($("#max_teplota_radio").is(":checked") === true) {
-            max_temp = (response.list[0].main.temp_max);
-            $("#max-temp").append(max_temp + "°C");
-        }
-
-        //tlak
-        if ($("#tlak_radio").is(":checked") === true) {
-            tlak = (response.list[0].main.pressure);
-            $("#tlak").append(tlak + "mBar");
-        }
-
-        //vitr
-        if ($("#vitr_radio").is(":checked") === true) {
-            vitr = (response.list[0].wind.speed);
-            $("#vitr").append(vitr + "m/s");
-        }
+        $("#vlhkost").append(response.list[0].main.humidity);
+        $("#max-temp").append(response.list[0].main.temp_max + "°C");
+        $("#min-temp").append(response.list[0].main.temp_min + "°C");
+        $("#tlak").append(response.list[0].main.pressure + "mBar");
+        $("#vitr").append(response.list[0].wind.speed + "m/s");
 
 
         for (i = 0; i < 16; i++) {
