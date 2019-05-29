@@ -23,11 +23,11 @@ $(document).ready(function () {
       }
       
       function showPosition(position) {
+          console.log(getCurrentPosition());
         console.log(position.coords.latitude, position.coords.longitude); 
       }
-      
-      getLocation();
-      showPosition();
+
+
 
     clear_map_localstorage();
 
