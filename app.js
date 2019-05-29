@@ -10,6 +10,7 @@ if ('serviceWorker' in navigator) {
 
 $(document).ready(function () {
 
+    search_flag = false;
 
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -92,8 +93,6 @@ $(document).ready(function () {
         $(".top").empty();
         $("#results_table_detail").empty();
     }
-
-    search_flag = false;
 
     $('.vypln').submit(function (e) {
         searched_city = $('#mesto').val();
