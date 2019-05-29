@@ -330,7 +330,7 @@ $(document).ready(function () {
         $(".overlay").toggleClass("displayed");
     };
 
-    $('.search_button').click(function () {
+    $('.search_button').click(function() {
         if ($(".settings_panel").is(":visible")) {
             $(".settings_panel").animate({
                 width: "toggle"
@@ -340,6 +340,10 @@ $(document).ready(function () {
     });
 
     setInterval('updateClock()', 1000);
+});
+
+$(".refresh_button").click(function(){
+    return_weather();
 });
 
 
