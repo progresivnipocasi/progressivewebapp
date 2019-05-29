@@ -8,7 +8,26 @@ if ('serviceWorker' in navigator) {
     }
 }
 
+
+
+
 $(document).ready(function () {
+
+
+    function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          console.log("geolokace nepodporovana");
+        }
+      }
+      
+      function showPosition(position) {
+        console.log(position.coords.latitude, position.coords.longitude); 
+      }
+      
+      getLocation();
+      showPosition();
 
     clear_map_localstorage();
 
