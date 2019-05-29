@@ -34,7 +34,8 @@ $(document).ready(function () {
         
         
                 $.ajax(settings).done(function (location_city) {
-                    
+                    searched_city = locationcity.address.city;
+                    return_weather();
                 });
 
 			});
