@@ -47,6 +47,9 @@ body {
     top: 40px;
     background-image: url(images/refresh.png);
     background-repeat: no-repeat;
+    display: block;
+    height: 35px;
+    width: 35px;
 }
 
 .settings_icon {
