@@ -11,6 +11,7 @@ const permanentCode = [
     "./images/min_temp.png",
     "./images/pressure.png",
     "./images/vitr.png",
+    "./images/refresh.png",
     "./images/icons/icon-32x32.png",
     "./images/icons/icon-72x72.png",
     "./images/icons/icon-96x96.png",
