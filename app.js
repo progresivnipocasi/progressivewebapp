@@ -247,7 +247,8 @@ $(document).ready(function () {
             "settings_ipLocation",
             "settings_sessionCounter201803",
             "settings_startUp",
-            "webGLtest3"
+            "webGLtest3",
+            "lang/cs.json"
         ];
 
         for (key of keysToRemove) {
