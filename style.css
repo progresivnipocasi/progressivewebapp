@@ -273,7 +273,7 @@ body main .container .results #vlhkost {
     top: 0px;
     left: 0px;
     width: 70%;
-    background-color: #5c5c5f;
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 5;
     overflow: auto;
     max-height: 100vh;
@@ -398,6 +398,11 @@ body main .container .results #vlhkost {
 @media screen and (max-width: 639px) {
     body main .container .results #teplota {
         font-size: 30px;
+    }
+
+    body {
+        background-image: url(images/day_background.jpg);
+        background-size: cover;
     }
 
     body main .container .results #result_city {
