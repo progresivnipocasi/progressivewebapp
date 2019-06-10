@@ -21,6 +21,7 @@ const permanentCode = [
     "./images/icons/icon-192x192.png",
     "./images/icons/icon-384x384.png",
     "./images/icons/icon-512x512.png",
+    "./images/day_background.jpg",
     "./sources/Chart.bundle.js",
     "./sources/jquery-3.3.1.min.js",
     "./sources/leaflet.js",
