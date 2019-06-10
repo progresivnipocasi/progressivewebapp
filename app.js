@@ -327,6 +327,7 @@ $(document).ready(function () {
     });
 
     $('.settings_icon').click(function schovat() {
+
         if ($(".overlay").hasClass("displayed")) {
             $(".overlay").toggleClass("displayed");
         }
@@ -337,10 +338,8 @@ $(document).ready(function () {
     });
 
     $('.refresh_button').click(function() {
-        $(this).toggleClass("nastaveni_rotate nastaveni_transition");
-        setTimeout(function() {
-            $(this).removeClass("nastaveni_rotate nastaveni_transition");
-        }, 500);
+        $(this).removeClass("nastaveni_rotate nastaveni_transition");
+        $(this).addClass("nastaveni_rotate nastaveni_transition");
     });
 
     function hide() {
