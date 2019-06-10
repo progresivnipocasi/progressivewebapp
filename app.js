@@ -340,9 +340,8 @@ $(document).ready(function () {
     $('.refresh_button').click(function() {
         $(this).addClass("nastaveni_rotate nastaveni_transition");
         setTimeout(function() {
-            $(this).removeClass("nastaveni_rotate nastaveni_transition");
+            $(".refresh_button").removeClass("nastaveni_rotate nastaveni_transition");
         }, 800);
-        setTimeout();
     });
 
     function hide() {
