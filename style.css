@@ -341,7 +341,7 @@ body main .container .results #vlhkost {
     float: left;
 }
 
-.nastaveni_rotate {
+.nastaveni_rotate, .refresh_button {
     -webkit-transform: rotate(360deg);  /* Chrome, Safari 3.1+ */
     -moz-transform: rotate(360deg);  /* Firefox 3.5-15 */
     -ms-transform: rotate(360deg);  /* IE 9 */
@@ -349,7 +349,7 @@ body main .container .results #vlhkost {
     transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera 12.50+ */
 }
 
-.nastaveni_transition {
+.nastaveni_transition, .refresh_button {
     -webkit-transition: all 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
     -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
     -o-transition: all 0.3s ease-out;  /* Opera 10.50–12.00 */
