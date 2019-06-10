@@ -360,7 +360,7 @@ $(document).ready(function () {
         hide();
     });
 
-    setInterval('updateClock()', 1000);
+    //setInterval('updateClock()', 1000);
 });
 
 
