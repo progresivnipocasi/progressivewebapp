@@ -355,17 +355,15 @@ $(document).ready(function () {
 
 
 
+function getdate(){
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+     if(s<10){
+         s = "0"+s;
+     }
 
-function updateClock() {
-    var currentTime = new Date();
-    var currentHours = currentTime.getHours();
-    var currentMinutes = currentTime.getMinutes();
-    var currentSeconds = currentTime.getSeconds();
-
-    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
-    currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
-
-    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
-
-    $("#clock").html(currentTimeString);
-}
+    $("#clock").text(h+" : "+m+" : "+s);
+     setTimeout(function(){getdate()}, 500);
+    }
