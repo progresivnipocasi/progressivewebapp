@@ -336,6 +336,16 @@ $(document).ready(function () {
         });
     });
 
+    $('.refresh_icon').click(function schovat() {
+        if ($(".overlay").hasClass("displayed")) {
+            $(".overlay").toggleClass("displayed");
+        }
+        $(this).toggleClass("nastaveni_rotate nastaveni_transition");
+        $(".settings_panel").animate({
+            width: "toggle"
+        });
+    });
+
     function hide() {
         $(this).toggleClass("close_search");
         $(".overlay").toggleClass("displayed");
