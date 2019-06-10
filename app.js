@@ -336,14 +336,8 @@ $(document).ready(function () {
         });
     });
 
-    $('.refresh_icon').click(function schovat() {
-        if ($(".overlay").hasClass("displayed")) {
-            $(".overlay").toggleClass("displayed");
-        }
+    $('.refresh_button').click(function() {
         $(this).toggleClass("nastaveni_rotate nastaveni_transition");
-        $(".settings_panel").animate({
-            width: "toggle"
-        });
     });
 
     function hide() {
@@ -360,20 +354,22 @@ $(document).ready(function () {
         hide();
     });
 
-    //setInterval('updateClock()', 1000);
+    setInterval('updateClock()', 1000);
 });
 
 
 
-function getdate(){
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-     if(s<10){
-         s = "0"+s;
-     }
 
-    $("#clock").text(h+" : "+m+" : "+s);
-     setTimeout(function(){getdate()}, 500);
-    }
+function updateClock() {
+    var currentTime = new Date();
+    var currentHours = currentTime.getHours();
+    var currentMinutes = currentTime.getMinutes();
+    var currentSeconds = currentTime.getSeconds();
+
+    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+    currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+
+    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
+
+    $("#clock").html(currentTimeString);
+}
