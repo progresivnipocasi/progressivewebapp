@@ -338,8 +338,7 @@ $(document).ready(function () {
     });
 
     $('.refresh_button').click(function() {
-        $(this).removeClass("nastaveni_rotate nastaveni_transition");
-        $(this).addClass("nastaveni_rotate nastaveni_transition");
+        $(this).toggleClass("nastaveni_rotate nastaveni_transition");
     });
 
     function hide() {
