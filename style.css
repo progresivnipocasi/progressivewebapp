@@ -155,6 +155,8 @@ body {
     text-align: right;
     margin-bottom: 20px;
     position: relative;
+    text-shadow: 2px 2px #000000;
+    font-weight: bold;
 }
 
 body main .container .results #teplota {
